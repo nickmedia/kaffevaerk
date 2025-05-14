@@ -1,6 +1,40 @@
 ---
+import { Image } from "astro:assets";
 ---
-<div>
-<p>Footer - tilføj footerindhold</p>
-</div>
-  
+
+<footer class="bg-[#946654] py-8">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mx-4 md:mx-16">
+    <!-- Adresse -->
+    <div class="">
+      <h1 class="text-[#F9F6F1] georama text-[24px] md:text-[30px] mb-2">
+        Adresse
+      </h1>
+      <div
+        class="text-[#F9F6F1] manrope text-[16px] md:text-[18px] flex flex-col space-y-2"
+      >
+        <div class="space-y-1">
+          <p>Butik:</p>
+          <p>Smallegade 22,</p>
+          <p>2000 Frederiksberg</p>
+        </div>
+
+        <div class="space-y-1 mt-6">
+          <p>Risteri:</p>
+          <p>Rugmarken 31,</p>
+          <p>3520 Farum</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Åbningstider -->
+    <div class="">
+      <h1 class="text-[#F9F6F1] georama text-[24px] md:text-[30px] mb-2">
+        Åbningstider
+      </h1>
+      <div class="space-y-1">
+        <p>Mandag–Fredag: 08.00–17.30</p>
+        <p>Lørdag–Søndag: 09.00–15.00</p>
+      </div>
+    </div>
+  </div>
+</footer>
