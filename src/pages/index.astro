@@ -3,8 +3,37 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Button from "../components/Button.astro";
 import Link from "../components/Link.astro";
 import { Image } from "astro:assets";
+
+import herovideo from "../assets/images/herovideo.mp4";
 ---
 
 <MainLayout title="Kaffevaerk">
-  <h1>FORSIDE</h1>
+  <section class="relative w-full h-screen overflow-hidden">
+    <!-- Video baggrund -->
+    <div class="relative w-full h-screen">
+      <video
+        src={herovideo}
+        class="absolute inset-0 w-full h-full object-cover"
+        autoplay
+        muted
+        loop></video>
+
+      <!-- Mørk overlay for bedre kontrast -->
+      <!-- <div class="absolute top-0 left-0 w-full h-full bg-black opacity-40">
+      </div> -->
+
+      <!-- Tekst ovenpå -->
+      <div
+        class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4"
+      >
+        <h1 class="text-[#F9F6F1] georama text-[96px] md:text-[96px]">
+          Ristet med passion <br /> serveret med kærlighed
+        </h1>
+        <h2 class="text-[#F9F6F1] georama text-[32px] md:text-[32px]">
+          Oplev smagen af håndværk – friskristet kaffe, nøje udvalgt og skabt
+          til at nydes.
+        </h2>
+      </div>
+    </div>
+  </section>
 </MainLayout>

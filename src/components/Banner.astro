@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+---
+
+<!-- Top Banner -->
+<div
+  class="bg-[#946654] text-white text-center py-2 px-4 text-sm md:text-base font-medium"
+>
+  <p id="topBannerText" class="transition-opacity duration-700">
+    Adresse: Smallegade 22, 2000 Frederiksberg
+  </p>
+</div>
+
+<script>
+  const bannerText = document.getElementById("topBannerText");
+
+  setTimeout(() => {
+    // Fade out teksten
+    bannerText.style.opacity = "0";
+
+    // Når fade out er færdig (700ms), skift tekst og fade in
+    setTimeout(() => {
+      bannerText.textContent = "Åbningstider: Man-Fre 08.00-17.30";
+      bannerText.style.opacity = "1";
+    }, 700);
+  }, 5000);
+</script>
