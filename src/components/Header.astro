@@ -1,6 +1,95 @@
 ---
 import { Image } from "astro:assets";
 import logo from "../assets/images/logo.svg";
+import søg from "../assets/images/søg.svg";
+import kurv from "../assets/images/kurv.svg";
 ---
 
-<div>Header - tilføj navigation mm.</div>
+<div
+  class="bg-[#F9F6F1] py-4 px-6 flex items-center justify-between relative z-20"
+>
+  <!-- Burger Menu ikon -->
+  <button
+    id="burgerBtn"
+    aria-label="Burger Menu"
+    class="md:hidden flex flex-col space-y-1 cursor-pointer relative w-6 h-6"
+  >
+    <span
+      class="block w-6 h-[2px] bg-black transition-all duration-300 ease-in-out origin-center"
+    ></span>
+    <span
+      class="block w-6 h-[2px] bg-black transition-all duration-300 ease-in-out"
+    ></span>
+    <span
+      class="block w-6 h-[2px] bg-black transition-all duration-300 ease-in-out origin-center"
+    ></span>
+  </button>
+
+  <!-- Logo -->
+  <a href="/" class="flex justify-center items-center">
+    <Image src={logo} alt="Kaffevaerk logo" class="h-[60px] w-[60px]" />
+  </a>
+
+  <nav class="hidden md:flex space-x-10">
+    <a href="/shop" class="manrope font-semibold">Shop</a>
+    <a href="/omos" class="manrope font-semibold">Om os</a>
+    <a href="/kontakt" class="manrope font-semibold">Kontakt</a>
+    <a href="/faq" class="manrope font-semibold">FAQ</a>
+  </nav>
+
+  <!-- Ikoner -->
+  <div class="flex space-x-4">
+    <Image src={søg} alt="Søg ikon" class="h-[25px] w-[25px]" />
+    <Image src={kurv} alt="Kurv ikon" class="h-[25px] w-[25px]" />
+  </div>
+</div>
+
+<!-- Burger menu dropdown -->
+<nav
+  id="burgerMenu"
+  class="max-h-0 overflow-hidden bg-[#F9F6F1] transition-max-height duration-300 ease-in-out md:hidden"
+>
+  <ul class="flex flex-col space-y-3 p-4">
+    <li><a href="/shop" class="hover:underline">Shop</a></li>
+    <li><a href="/om-os" class="hover:underline">Om os</a></li>
+    <li><a href="/kontakt" class="hover:underline">Kontakt os</a></li>
+    <li><a href="/faq" class="hover:underline">FAQ</a></li>
+  </ul>
+</nav>
+
+<script>
+  const burgerBtn = document.getElementById("burgerBtn");
+  const burgerMenu = document.getElementById("burgerMenu");
+  const lines = burgerBtn.querySelectorAll("span");
+
+  burgerBtn.addEventListener("click", () => {
+    const isOpen =
+      burgerMenu.style.maxHeight && burgerMenu.style.maxHeight !== "0px";
+
+    if (isOpen) {
+      burgerMenu.style.maxHeight = "0";
+      burgerBtn.classList.remove("open");
+    } else {
+      burgerMenu.style.maxHeight = burgerMenu.scrollHeight + "px";
+      burgerBtn.classList.add("open");
+    }
+  });
+</script>
+
+<style>
+  /* Burger ikon animation */
+  #burgerBtn.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  #burgerBtn.open span:nth-child(2) {
+    opacity: 0;
+  }
+  #burgerBtn.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Transition på max-height for smooth dropdown */
+  nav#burgerMenu {
+    transition-property: max-height;
+  }
+</style>
