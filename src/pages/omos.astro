@@ -2,8 +2,60 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import { Image } from "astro:assets";
+
+import placeholder from "../assets/images/placeholder.jpg";
 ---
 
 <MainLayout title="Om os">
-  <h1></h1>
+  <section
+    class="flex flex-col md:flex-row md:items-center md:justify-between px-5 md:px-20"
+  >
+    <Image src={placeholder} alt="" class="order-1 max-w-md md:order-2" />
+    <div class="order-2 md:order-1 md:w-1/2">
+      <h1
+        class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-left md:text-[64px]"
+      >
+        Om Kaffevaerk
+      </h1>
+      <p
+        class="manrope text-[#2B2B2B] text-[16px] px-5 mb-10 md:px-0 md:text-left md:text-[18px]"
+      >
+        Kaffevaerk risteri er grundlagt ud fra principper om bæredygtighed -
+        over for miljøet og farmerne. Derfor har vi valgt udelukkende at source
+        kaffer med fuld sporbarhed hvor vi er sikre på at kaffens smag også
+        afspejler det arbejde der er lagt i dyrkning og forarbejdning.
+      </p>
+      <p
+        class="manrope text-[#2B2B2B] text-[16px] px-5 mb-10 md:px-0 md:text-left md:text-[18px]"
+      >
+        Vi stræber efter et samarbejde med farmere og tiltroede folk i branchen
+        hvor vi kan opbygge længerevarende og gensidige forhold. Vi ønsker at
+        skabe værdi for alle i kæden - fra farmer til forbruger.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-[#577866] mt-10 py-4 pb-10 md:pt-10">
+    <Image src={placeholder} alt="" class="" />
+    <h1
+      class="text-[#F5EFE6] georama text-[40px] mt-5 mb-5 text-center md:text-[96px]"
+    >
+      Økologisk dyrkning og kaffe med karakter
+    </h1>
+    <p class="manrope text-[#F5EFE6] text-[16px] px-5 mb-10 md:text-[20px]">
+      Vi har fokus på økologi da vi ønsker en dyrkning der er bæredygtig i det
+      lange løb uden kemikalier og kunstgødning. Ved at lade naturen pleje sig
+      selv gennem oprindelige dyrkningsmetoder og naturlig kompost-gødning ved
+      vi at jorden i dyrkningslandene ikke bliver udpint og at der dermed er
+      grobund for fremtidig kaffedyrkning i generationer. Kaffevaerks mission er
+      at alle skal kunne finde noget de elsker i en af vores poser. Vi rister i
+      små portioner så ofte der er brug for det, til dem der har brug for en
+      opkvikker, en smagsoplevelse eller noget anderledes.
+    </p>
+  </section>
+
+  <Image src={placeholder} alt="" class="" />
+  <Image src={placeholder} alt="" class="" />
+  <Image src={placeholder} alt="" class="" />
 </MainLayout>
