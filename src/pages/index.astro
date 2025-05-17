@@ -4,7 +4,10 @@ import Button from "../components/Button.astro";
 import Link from "../components/Link.astro";
 import { Image } from "astro:assets";
 
+import placeholder from "../assets/images/placeholder.jpg";
+
 import herovideo from "../assets/images/herovideo.mp4";
+import stjerne from "../assets/images/stjerne.svg";
 ---
 
 <MainLayout title="Kaffevaerk">
@@ -19,21 +22,124 @@ import herovideo from "../assets/images/herovideo.mp4";
         loop></video>
 
       <!-- Mørk overlay for bedre kontrast -->
-      <!-- <div class="absolute top-0 left-0 w-full h-full bg-black opacity-40">
-      </div> -->
+      <!-- <div class="absolute top-0 left-0 w-full h-full bg-black/40"></div> -->
 
-      <!-- Tekst ovenpå -->
+      <!-- Tekst og CTA ovenpå -->
       <div
-        class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4"
+        class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 space-y-6"
       >
-        <h1 class="text-[#F9F6F1] georama text-[96px] md:text-[96px]">
+        <h1 class="text-[#F9F6F1] georama text-[40px] md:text-[96px]">
           Ristet med passion <br /> serveret med kærlighed
         </h1>
-        <h2 class="text-[#F9F6F1] georama text-[32px] md:text-[32px]">
+        <h2 class="text-[#F9F6F1] georama text-[20px] md:text-[32px]">
           Oplev smagen af håndværk – friskristet kaffe, nøje udvalgt og skabt
           til at nydes.
         </h2>
+
+        <!-- CTA Knap -->
+        <a
+          href="/"
+          class="manrope text-[16px] font-medium md:text-[24px] bg-[#577866] hover:bg-[#455F50] text-[#F9F6F1] px-6 py-4 z-20 transition duration-300"
+        >
+          Køb din kaffe
+        </a>
       </div>
     </div>
+  </section>
+
+  <section>
+    <h2
+      class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-[96px]"
+    >
+      Udvalgte produkter
+    </h2>
+  </section>
+
+  <section class="bg-[#946654] py-4 pb-10 md:pt-10">
+    <Image src={placeholder} alt="" class="" />
+    <h2
+      class="text-[#F9F6F1] georama text-[40px] mt-5 mb-5 text-center md:text-[96px"
+    >
+      Vores kaffeunivers
+    </h2>
+    <p class="manrope text-[#F9F6F1] text-[16px] px-5 md:text-[20px]">
+      Hos Kaffevaerk handler det ikke bare om kaffe – det handler
+      om kvalitet, bæredygtighed og passion. Vi rister kaffe med hjertet på
+      vores eget risteri, og vi arbejder tæt sammen med vores dygtige
+      farmere for at sikre en kaffeoplevelse, der smager lige så godt, som den
+      føles. Vores kaffe er sporbar og bæredygtig , hvilket betyder, at du ikke
+      kun får en fantastisk smagsoplevelse, men også er med til at støtte etisk
+      produktion. Velkommen til en verden af friskristet kaffe – lavet med omhu,
+      leveret med kærlighed.
+    </p>
+  </section>
+
+  <section>
+    <Image src={placeholder} alt="" class="mt-10" />
+    <Image src={placeholder} alt="" class="mt-5" />
+  </section>
+
+  <section class="bg-[#577866] mt-10 py-4 pb-10 md:pt-10">
+    <h2
+      class="text-[#F9F6F1] georama text-[40px] mt-5 mb-5 text-center md:text-[96px"
+    >
+      Det siger vores kunder
+    </h2>
+
+    <div class="bg-[#F9F6F1] mx-5 pt-10 pb-10 p-4 max-w-md">
+      <p class="manrope text-[#2B2B2B] text-[16px] px-5 md:text-[20px]">
+        Det er tydeligt, at Kaffevaerk går op i hver eneste detalje – fra
+        ristning til smag. Jeg har aldrig haft så mange favoritbønner på én
+        gang.
+      </p>
+
+      <div class="flex space-x-2 px-4 mt-5">
+        <Image
+          src={stjerne}
+          alt="Anmeldelsesstjerne"
+          class="w-[35px] h-[30px]"
+        />
+        <Image
+          src={stjerne}
+          alt="Anmeldelsesstjerne"
+          class="w-[35px] h-[30px]"
+        />
+        <Image
+          src={stjerne}
+          alt="Anmeldelsesstjerne"
+          class="w-[35px] h-[30px]"
+        />
+        <Image
+          src={stjerne}
+          alt="Anmeldelsesstjerne"
+          class="w-[35px] h-[30px]"
+        />
+        <Image
+          src={stjerne}
+          alt="Anmeldelsesstjerne"
+          class="w-[35px] h-[30px]"
+        />
+      </div>
+      <p class="manrope text-[#2B2B2B] text-[16px] px-5 mt-5 md:text-[20px]">
+        — Signe Katrine Madsen
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2
+      class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-[96px]"
+    >
+      Følg med på Instagram
+    </h2>
+    <h3
+      class="text-[#2B2B2B] georama text-[24px] mt-5 mb-5 text-center md:text-[96px]"
+    >
+      @kaffevaerkcph
+    </h3>
+
+    <Image src={placeholder} alt="" class="" />
+    <Image src={placeholder} alt="" class="" />
+    <Image src={placeholder} alt="" class="" />
   </section>
 </MainLayout>
