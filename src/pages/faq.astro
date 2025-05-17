@@ -2,8 +2,106 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+
+import { Image } from "astro:assets";
 ---
 
 <MainLayout title="FAQ">
-  <h1></h1>
+  <h1
+    class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-left md:text-[64px]"
+  >
+    Det spørger folk ofte om
+  </h1>
+
+  <!-- FAQ 1 -->
+  <section>
+    <details>
+      <summary class="manrope flex items-center cursor-pointer">
+        <!-- Din egen ikon når lukket -->
+        <svg
+          class="icon closed-icon w-5 h-5 mr-2 transition-transform duration-300"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 4v16m8-8H4"></path>
+        </svg>
+
+        Hvordan fungerer jeres kaffeabonnement?
+      </summary>
+      <p>
+        Vores kaffeabonnement fungerer sådan, at du kan vælge din foretrukne
+        kaffe, hvor ofte den skal leveres, og vi sørger for friskristet kaffe
+        leveret direkte til din dør.
+      </p>
+    </details>
+
+    <!-- FAQ 2 -->
+    <details>
+      <summary>Hvordan fungerer jeres kaffeabonnement?</summary>
+      <p>
+        Vores kaffeabonnement fungerer sådan, at du kan vælge din foretrukne
+        kaffe, hvor ofte den skal leveres, og vi sørger for friskristet kaffe
+        leveret direkte til din dør.
+      </p>
+    </details>
+
+    <!-- FAQ 3 -->
+    <details>
+      <summary>Hvordan fungerer jeres kaffeabonnement?</summary>
+      <p>
+        Vores kaffeabonnement fungerer sådan, at du kan vælge din foretrukne
+        kaffe, hvor ofte den skal leveres, og vi sørger for friskristet kaffe
+        leveret direkte til din dør.
+      </p>
+    </details>
+
+    <!-- FAQ 4 -->
+    <details>
+      <summary>Hvordan fungerer jeres kaffeabonnement?</summary>
+      <p>
+        Vores kaffeabonnement fungerer sådan, at du kan vælge din foretrukne
+        kaffe, hvor ofte den skal leveres, og vi sørger for friskristet kaffe
+        leveret direkte til din dør.
+      </p>
+    </details>
+
+    <!-- FAQ 5 -->
+    <details>
+      <summary>Hvordan fungerer jeres kaffeabonnement?</summary>
+      <p>
+        Vores kaffeabonnement fungerer sådan, at du kan vælge din foretrukne
+        kaffe, hvor ofte den skal leveres, og vi sørger for friskristet kaffe
+        leveret direkte til din dør.
+      </p>
+    </details>
+
+    <!-- FAQ 6 -->
+    <details>
+      <summary>Hvordan fungerer jeres kaffeabonnement?</summary>
+      <p>
+        Vores kaffeabonnement fungerer sådan, at du kan vælge din foretrukne
+        kaffe, hvor ofte den skal leveres, og vi sørger for friskristet kaffe
+        leveret direkte til din dør.
+      </p>
+    </details>
+  </section>
 </MainLayout>
+
+<style>
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary::marker {
+    content: none;
+  }
+
+  details[open] .closed-icon {
+    transform: rotate(45deg); /* fx ændre plus til kryds */
+  }
+</style>
