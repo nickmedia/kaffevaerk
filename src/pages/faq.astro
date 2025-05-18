@@ -7,90 +7,174 @@ import { Image } from "astro:assets";
 ---
 
 <MainLayout title="FAQ">
-  <h1
-    class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-left md:text-[64px]"
-  >
-    Det spørger folk ofte om
-  </h1>
+  <div class="w-full max-w-3xl px-6 mx-auto mt-10">
+    <h1
+      class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-[64px]"
+    >
+      Det spørger folk ofte om
+    </h1>
 
-  <!-- FAQ 1 -->
-  <section>
-    <details>
-      <summary class="manrope flex items-center cursor-pointer">
-        <!-- Din egen ikon når lukket -->
-        <svg
-          class="icon closed-icon w-5 h-5 mr-2 transition-transform duration-300"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+    <div class="space-y-4 mb-20">
+      <!-- FAQ 1 -->
+      <details class="group border-b border-[#2B2B2B]">
+        <summary
+          class="flex justify-between items-center cursor-pointer py-4 text-[#2B2B2B]"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 4v16m8-8H4"></path>
-        </svg>
+          Hvordan fungerer jeres kaffeabonnement?
+          <svg
+            class="w-5 h-5 transform group-open:rotate-180 transition-transform"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </summary>
+        <p class="bg-[#577866] text-[#F5EFE6] p-6">
+          Du vælger din yndlingskaffe og hvor ofte, du vil have den leveret. Vi
+          sender automatisk, og du kan nemt ændre, springe over eller opsige når
+          som helst.
+        </p>
+      </details>
 
-        Hvordan fungerer jeres kaffeabonnement?
-      </summary>
-      <p>
-        Vores kaffeabonnement fungerer sådan, at du kan vælge din foretrukne
-        kaffe, hvor ofte den skal leveres, og vi sørger for friskristet kaffe
-        leveret direkte til din dør.
-      </p>
-    </details>
+      <!-- FAQ 2 -->
+      <details class="group border-b border-[#2B2B2B]">
+        <summary
+          class="flex justify-between items-center cursor-pointer py-4 text-[#2B2B2B]"
+        >
+          Hvad er forskellen på jeres kaffer?
+          <svg
+            class="w-5 h-5 transform group-open:rotate-180 transition-transform"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </summary>
+        <p class="bg-[#577866] text-[#F5EFE6] p-6">
+          Vi tilbyder et udvalg af forskellige kaffer, der varierer i
+          smagsprofil, oprindelse og ristningsgrad. Hos Kaffevaerk har vi både
+          single-origin kaffer og blandinger for en mere kompleks smag.
+        </p>
+      </details>
 
-    <!-- FAQ 2 -->
-    <details>
-      <summary>Hvordan fungerer jeres kaffeabonnement?</summary>
-      <p>
-        Vores kaffeabonnement fungerer sådan, at du kan vælge din foretrukne
-        kaffe, hvor ofte den skal leveres, og vi sørger for friskristet kaffe
-        leveret direkte til din dør.
-      </p>
-    </details>
+      <!-- FAQ 3 -->
+      <details class="group border-b border-[#2B2B2B]">
+        <summary
+          class="flex justify-between items-center cursor-pointer py-4 text-[#2B2B2B]"
+        >
+          Er jeres kaffe økologisk og bæredygtig?
+          <svg
+            class="w-5 h-5 transform group-open:rotate-180 transition-transform"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </summary>
+        <p class="bg-[#577866] text-[#F5EFE6] p-6">
+          Ja, alle vores kaffer er sporbare og indkøbt med fokus på miljøvenlige
+          produktionsmetoder og fair forhold for kaffebønderne.
+        </p>
+      </details>
 
-    <!-- FAQ 3 -->
-    <details>
-      <summary>Hvordan fungerer jeres kaffeabonnement?</summary>
-      <p>
-        Vores kaffeabonnement fungerer sådan, at du kan vælge din foretrukne
-        kaffe, hvor ofte den skal leveres, og vi sørger for friskristet kaffe
-        leveret direkte til din dør.
-      </p>
-    </details>
+      <!-- FAQ 4 -->
+      <details class="group border-b border-[#2B2B2B]">
+        <summary
+          class="flex justify-between items-center cursor-pointer py-4 text-[#2B2B2B]"
+        >
+          Hvor lang er leveringstiden, og hvad koster fragt?
+          <svg
+            class="w-5 h-5 transform group-open:rotate-180 transition-transform"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </summary>
+        <p class="bg-[#577866] text-[#F5EFE6] p-6">
+          Vi benytter GLS til alle forsendelser. Levering tager normalt 1-2
+          hverdage. Pakkeshop: 29 kr. Privatadresse: 49 kr. Erhvervsadresse: 49
+          kr.
+        </p>
+      </details>
 
-    <!-- FAQ 4 -->
-    <details>
-      <summary>Hvordan fungerer jeres kaffeabonnement?</summary>
-      <p>
-        Vores kaffeabonnement fungerer sådan, at du kan vælge din foretrukne
-        kaffe, hvor ofte den skal leveres, og vi sørger for friskristet kaffe
-        leveret direkte til din dør.
-      </p>
-    </details>
+      <!-- FAQ 5 -->
+      <details class="group border-b border-[#2B2B2B]">
+        <summary
+          class="flex justify-between items-center cursor-pointer py-4 text-[#2B2B2B]"
+        >
+          Hvilke betalingsmetoder accepterer I?
+          <svg
+            class="w-5 h-5 transform group-open:rotate-180 transition-transform"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </summary>
+        <p class="bg-[#577866] text-[#F5EFE6] p-6">
+          Vi accepterer følgende betalingsmetoder: Apple Pay, Google Pay,
+          Mastercard, Shop Pay, Visa og MobilePay.
+        </p>
+      </details>
 
-    <!-- FAQ 5 -->
-    <details>
-      <summary>Hvordan fungerer jeres kaffeabonnement?</summary>
-      <p>
-        Vores kaffeabonnement fungerer sådan, at du kan vælge din foretrukne
-        kaffe, hvor ofte den skal leveres, og vi sørger for friskristet kaffe
-        leveret direkte til din dør.
-      </p>
-    </details>
-
-    <!-- FAQ 6 -->
-    <details>
-      <summary>Hvordan fungerer jeres kaffeabonnement?</summary>
-      <p>
-        Vores kaffeabonnement fungerer sådan, at du kan vælge din foretrukne
-        kaffe, hvor ofte den skal leveres, og vi sørger for friskristet kaffe
-        leveret direkte til din dør.
-      </p>
-    </details>
-  </section>
+      <!-- FAQ 6 -->
+      <details class="group border-b border-[#2B2B2B]">
+        <summary
+          class="flex justify-between items-center cursor-pointer py-4 text-[#2B2B2B]"
+        >
+          Jeg har et problem med min ordre – hvad gør jeg?
+          <svg
+            class="w-5 h-5 transform group-open:rotate-180 transition-transform"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </summary>
+        <p class="bg-[#577866] text-[#F5EFE6] p-6">
+          Kontakt vores kundeservice på kontakt@kaffevaerk.dk eller ring til os.
+          Vi hjælper dig med at få løst problemet hurtigt.
+        </p>
+      </details>
+    </div>
+  </div>
 </MainLayout>
 
 <style>
