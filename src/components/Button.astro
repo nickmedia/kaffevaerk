@@ -1,5 +1,13 @@
 ---
+const { text } = Astro.props;
 ---
-<div>
-    <button class="border-2 border-black"><slot /></button>
-</div>
+
+<button
+  class="manrope text-[16px] font-medium bg-[#577866] hover:bg-[#455F50] text-[#F9F6F1]
+         px-6 py-3 h-[60px] md:px-8 md:py-4 md:h-16 z-20 transition duration-300"
+  >{ text }
+</button>
+
+<button>
+    <slot/>
+</button>
