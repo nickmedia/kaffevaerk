@@ -8,6 +8,12 @@ import placeholder from "../assets/images/placeholder.jpg";
 
 import herovideo from "../assets/images/herovideo.mp4";
 import stjerne from "../assets/images/stjerne.svg";
+import barista from "../assets/images/barista.webp";
+import instagram1 from "../assets/images/instagram1.webp";
+import instagram2 from "../assets/images/instagram2.webp";
+import instagram3 from "../assets/images/instagram3.webp";
+import plante from "../assets/images/plante.webp";
+import kaffekop from "../assets/images/kaffekop.webp";
 ---
 
 <MainLayout title="Kaffevaerk">
@@ -38,8 +44,8 @@ import stjerne from "../assets/images/stjerne.svg";
 
         <!-- CTA Knap -->
         <a
-          href="/"
-          class="manrope text-[16px] font-medium md:text-[24px] bg-[#577866] hover:bg-[#455F50] text-[#F9F6F1] px-6 py-4 z-20 transition duration-300"
+          href="/shop"
+          class="manrope text-[16px] font-medium md:text-[18px] bg-[#577866] hover:bg-[#455F50] text-[#F9F6F1] px-6 py-4 transition duration-300 mt-10 md:px-6 md:py-4"
         >
           Køb din kaffe
         </a>
@@ -49,97 +55,263 @@ import stjerne from "../assets/images/stjerne.svg";
 
   <section>
     <h2
-      class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-[96px]"
+      class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-[64px]"
     >
       Udvalgte produkter
     </h2>
   </section>
 
-  <section class="bg-[#946654] py-4 pb-10 md:pt-10">
-    <Image src={placeholder} alt="" class="" />
-    <h2
-      class="text-[#F9F6F1] georama text-[40px] mt-5 mb-5 text-center md:text-[96px"
-    >
-      Vores kaffeunivers
-    </h2>
-    <p class="manrope text-[#F9F6F1] text-[16px] px-5 md:text-[20px]">
-      Hos Kaffevaerk handler det ikke bare om kaffe – det handler
-      om kvalitet, bæredygtighed og passion. Vi rister kaffe med hjertet på
-      vores eget risteri, og vi arbejder tæt sammen med vores dygtige
-      farmere for at sikre en kaffeoplevelse, der smager lige så godt, som den
-      føles. Vores kaffe er sporbar og bæredygtig , hvilket betyder, at du ikke
-      kun får en fantastisk smagsoplevelse, men også er med til at støtte etisk
-      produktion. Velkommen til en verden af friskristet kaffe – lavet med omhu,
-      leveret med kærlighed.
-    </p>
+  <section class="bg-[#946654] py-10">
+    <div class="grid md:grid-cols-2 items-center">
+      <Image
+        src={barista}
+        alt=""
+        class="w-full md:w-[80%] md:h-[500px] object-cover px-5 md:px-0 mx-auto"
+      />
+
+      <div class="px-5 md:px-10">
+        <h2 class="text-[#F9F6F1] georama text-[40px] mt-5 mb-5 md:text-[64px]">
+          Vores kaffeunivers
+        </h2>
+        <p class="manrope text-[#F9F6F1] text-[16px]">
+          Hos Kaffevaerk handler det ikke bare om kaffe – det handler om
+          kvalitet, bæredygtighed og passion. Vi rister kaffe med hjertet på
+          vores eget risteri, og vi arbejder tæt sammen med vores dygtige
+          farmere for at sikre en kaffeoplevelse, der smager lige så godt, som
+          den føles. Vores kaffe er sporbar og bæredygtig , hvilket betyder, at
+          du ikke kun får en fantastisk smagsoplevelse, men også er med til at
+          støtte etisk produktion. <br />
+          <br />Velkommen til en verden af friskristet kaffe – lavet med omhu,
+          leveret med kærlighed.
+        </p>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <Image src={placeholder} alt="" class="mt-10" />
-    <Image src={placeholder} alt="" class="mt-5" />
+  <section class="md:grid md:grid-cols-2 gap-4">
+    <Image src={plante} alt="" class="mt-10 h-[400px] object-cover" />
+    <Image src={kaffekop} alt="" class="mt-5 md:mt-10 h-[400px] object-cover" />
   </section>
 
-  <section class="bg-[#577866] mt-10 py-4 pb-10 md:pt-10">
+  <section class="bg-[#577866] mt-10 py-4 pb-20 md:pt-10 md:pb-32">
     <h2
-      class="text-[#F9F6F1] georama text-[40px] mt-5 mb-5 text-center md:text-[96px"
+      class="text-[#F9F6F1] georama text-[40px] mx-5 mt-5 mb-5 text-center md:text-[64px] md:text-left md:mb-20"
     >
       Det siger vores kunder
     </h2>
 
-    <div class="bg-[#F9F6F1] mx-5 pt-10 pb-10 p-4 max-w-md">
-      <p class="manrope text-[#2B2B2B] text-[16px] px-5 md:text-[20px]">
-        Det er tydeligt, at Kaffevaerk går op i hver eneste detalje – fra
-        ristning til smag. Jeg har aldrig haft så mange favoritbønner på én
-        gang.
-      </p>
+    <div class="md:grid md:grid-cols-3 md:gap-6">
+      <!-- Anmeldelse 1 -->
+      <div
+        class="bg-[#F9F6F1] mx-5 pt-16 pb-16 p-4 max-w-md"
+        style="box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);"
+      >
+        <p class="manrope text-[#2B2B2B] text-[16px] px-5">
+          Det er tydeligt, at Kaffevaerk går op i hver eneste detalje – fra
+          ristning til smag. Jeg har aldrig haft så mange favoritbønner på én
+          gang.
+        </p>
 
-      <div class="flex space-x-2 px-4 mt-5">
-        <Image
-          src={stjerne}
-          alt="Anmeldelsesstjerne"
-          class="w-[35px] h-[30px]"
-        />
-        <Image
-          src={stjerne}
-          alt="Anmeldelsesstjerne"
-          class="w-[35px] h-[30px]"
-        />
-        <Image
-          src={stjerne}
-          alt="Anmeldelsesstjerne"
-          class="w-[35px] h-[30px]"
-        />
-        <Image
-          src={stjerne}
-          alt="Anmeldelsesstjerne"
-          class="w-[35px] h-[30px]"
-        />
-        <Image
-          src={stjerne}
-          alt="Anmeldelsesstjerne"
-          class="w-[35px] h-[30px]"
-        />
+        <div class="flex space-x-2 px-4 mt-5">
+          <Image
+            src={stjerne}
+            alt="Anmeldelsesstjerne"
+            class="w-[35px] h-[30px]"
+          />
+          <Image
+            src={stjerne}
+            alt="Anmeldelsesstjerne"
+            class="w-[35px] h-[30px]"
+          />
+          <Image
+            src={stjerne}
+            alt="Anmeldelsesstjerne"
+            class="w-[35px] h-[30px]"
+          />
+          <Image
+            src={stjerne}
+            alt="Anmeldelsesstjerne"
+            class="w-[35px] h-[30px]"
+          />
+          <Image
+            src={stjerne}
+            alt="Anmeldelsesstjerne"
+            class="w-[35px] h-[30px]"
+          />
+        </div>
+        <p class="manrope text-[#2B2B2B] text-[16px] px-5 mt-5">
+          — Signe Katrine Madsen
+        </p>
       </div>
-      <p class="manrope text-[#2B2B2B] text-[16px] px-5 mt-5 md:text-[20px]">
-        — Signe Katrine Madsen
-      </p>
+
+      <!-- Anmeldelse 2 -->
+      <div
+        class="bg-[#F9F6F1] mx-5 pt-16 pb-16 p-4 max-w-md mt-10 md:mt-0"
+        style="box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);"
+      >
+        <p class="manrope text-[#2B2B2B] text-[16px] px-5">
+          Jeg har fået Kaffevaerk anbefalet af en ven, og nu drikker jeg det
+          hver dag. Deres kaffe smager friskt, og man bliver næsten afhængig på
+          den gode måde.
+        </p>
+
+        <div class="flex space-x-2 px-4 mt-5">
+          <Image
+            src={stjerne}
+            alt="Anmeldelsesstjerne"
+            class="w-[35px] h-[30px]"
+          />
+          <Image
+            src={stjerne}
+            alt="Anmeldelsesstjerne"
+            class="w-[35px] h-[30px]"
+          />
+          <Image
+            src={stjerne}
+            alt="Anmeldelsesstjerne"
+            class="w-[35px] h-[30px]"
+          />
+          <Image
+            src={stjerne}
+            alt="Anmeldelsesstjerne"
+            class="w-[35px] h-[30px]"
+          />
+          <Image
+            src={stjerne}
+            alt="Anmeldelsesstjerne"
+            class="w-[35px] h-[30px]"
+          />
+        </div>
+        <p class="manrope text-[#2B2B2B] text-[16px] px-5 mt-5">
+          — Anders Birk Thomsen
+        </p>
+      </div>
+
+      <!-- Anmeldelse 3 -->
+      <div
+        class="bg-[#F9F6F1] mx-5 pt-16 pb-16 p-4 max-w-md mt-10 md:mt-0"
+        style="box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);"
+      >
+        <p class="manrope text-[#2B2B2B] text-[16px] px-5">
+          Man mærker virkelig kvaliteten. Ikke bare i smagen, men også i
+          indpakningen og kommunikationen. Det føles som et brand med sjæl.
+        </p>
+
+        <div class="flex space-x-2 px-4 mt-5">
+          <Image
+            src={stjerne}
+            alt="Anmeldelsesstjerne"
+            class="w-[35px] h-[30px]"
+          />
+          <Image
+            src={stjerne}
+            alt="Anmeldelsesstjerne"
+            class="w-[35px] h-[30px]"
+          />
+          <Image
+            src={stjerne}
+            alt="Anmeldelsesstjerne"
+            class="w-[35px] h-[30px]"
+          />
+          <Image
+            src={stjerne}
+            alt="Anmeldelsesstjerne"
+            class="w-[35px] h-[30px]"
+          />
+          <Image
+            src={stjerne}
+            alt="Anmeldelsesstjerne"
+            class="w-[35px] h-[30px]"
+          />
+        </div>
+        <p class="manrope text-[#2B2B2B] text-[16px] px-5 mt-5">
+          — Louise Vestergaard
+        </p>
+      </div>
     </div>
   </section>
 
-  <section>
+  <section class="bg-[#F9F6F1] mt-10 mb-10">
     <h2
-      class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-[96px]"
+      class="text-[#2B2B2B] georama text-[40px] mx-5 mb-3 text-center md:text-[64px]"
     >
       Følg med på Instagram
     </h2>
-    <h3
-      class="text-[#2B2B2B] georama text-[24px] mt-5 mb-5 text-center md:text-[96px]"
-    >
+    <h3 class="text-[#2B2B2B] georama text-[24px] mb-10 text-center">
       @kaffevaerkcph
     </h3>
 
-    <Image src={placeholder} alt="" class="" />
-    <Image src={placeholder} alt="" class="" />
-    <Image src={placeholder} alt="" class="" />
+    <div
+      class="flex flex-col md:flex-row gap-6 justify-center items-center px-4"
+    >
+      <Image
+        src={instagram1}
+        alt="Instagram billede 1"
+        class="w-full md:w-1/3 object-cover"
+      />
+      <Image
+        src={instagram2}
+        alt="Instagram billede 2"
+        class="w-full md:w-1/3 object-cover"
+      />
+      <Image
+        src={instagram3}
+        alt="Instagram billede 3"
+        class="w-full md:w-1/3 object-cover"
+      />
+    </div>
   </section>
 </MainLayout>
+
+<script>
+  const reviews = [
+    {
+      text: "Det er tydeligt, at Kaffevaerk går op i hver eneste detalje – fra ristning til smag. Jeg har aldrig haft så mange favoritbønner på én gang.",
+      author: "— Signe Katrine Madsen",
+    },
+    {
+      text: "Jeg har fået Kaffevaerk anbefalet af en ven, og nu drikker jeg det hver dag. Deres kaffe smager friskt, og man bliver næsten afhængig på den gode måde.",
+      author: "— Anders Birk Thomsen",
+    },
+    {
+      text: "Man mærker virkelig kvaliteten. Ikke bare i smagen, men også i indpakningen og kommunikationen. Det føles som et brand med sjæl.",
+      author: "— Louise Vestergaard",
+    },
+  ];
+
+  const reviewText = document.getElementById("reviewText");
+  const reviewAuthor = document.getElementById("reviewAuthor");
+  const starsContainer = document.getElementById("starsContainer");
+  const reviewIndex = document.getElementById("reviewIndex");
+
+  let currentIndex = 0;
+  const total = reviews.length;
+
+  function renderReview(index) {
+    const review = reviews[index];
+    reviewText.textContent = review.text;
+    reviewAuthor.textContent = review.author;
+
+    starsContainer.innerHTML = "";
+    for (let i = 0; i < 5; i++) {
+      const star = document.createElement("img");
+      star.src = "stjerne.svg"; // skift til dit stjerneikon
+      star.alt = "Anmeldelsesstjerne";
+      star.className = "w-[35px] h-[30px]";
+      starsContainer.appendChild(star);
+    }
+
+    reviewIndex.textContent = `${index + 1} / ${total}`;
+  }
+
+  function nextReview() {
+    currentIndex = (currentIndex + 1) % total;
+    renderReview(currentIndex);
+  }
+
+  // Start med at vise første anmeldelse
+  renderReview(currentIndex);
+
+  // Skift anmeldelse automatisk hvert 4. sekund
+  setInterval(nextReview, 1000);
+</script>

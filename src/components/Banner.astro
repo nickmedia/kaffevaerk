@@ -6,22 +6,35 @@ import { Image } from "astro:assets";
 <div
   class="bg-[#946654] text-white text-center py-2 px-4 text-sm md:text-base font-medium"
 >
-  <p id="topBannerText" class="transition-opacity duration-700">
-    Adresse: Smallegade 22, 2000 Frederiksberg
+  <p
+    id="topBannerText"
+    class="transition-opacity duration-700 manrope font-medium"
+  >
+    Smallegade 22, 2000 Frederiksberg
   </p>
 </div>
 
 <script>
   const bannerText = document.getElementById("topBannerText");
 
-  setTimeout(() => {
-    // Fade out teksten
+  const messages = [
+    "Smallegade 22, 2000 Frederiksberg",
+    "Få 10% rabat ved køb af 3 poser kaffe",
+    "Levering fra 29,- DKK",
+    "Følg os på Instagram: @kaffevaerkcph ",
+  ];
+
+  let index = 0;
+
+  function cycleBannerText() {
     bannerText.style.opacity = "0";
 
-    // Når fade out er færdig (700ms), skift tekst og fade in
     setTimeout(() => {
-      bannerText.textContent = "Åbningstider: Man-Fre 08.00-17.30";
+      index = (index + 1) % messages.length;
+      bannerText.textContent = messages[index];
       bannerText.style.opacity = "1";
     }, 700);
-  }, 5000);
+  }
+
+  setInterval(cycleBannerText, 5000); // Skifter hvert 5. sekund
 </script>
