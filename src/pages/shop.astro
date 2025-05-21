@@ -1,17 +1,116 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import Produkter from "../components/Produkter.astro";
+
+const products = await fetch(
+  "https://rzrjmncawmbiwybkfevi.supabase.co/rest/v1/products?order=id.asc",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6cmptbmNhd21iaXd5YmtmZXZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU4NjM5MDQsImV4cCI6MjA2MTQzOTkwNH0.fZH4Fc4wDSH_YNjx4pfHsh8rdOatk8MoKo582D9Peow",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6cmptbmNhd21iaXd5YmtmZXZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU4NjM5MDQsImV4cCI6MjA2MTQzOTkwNH0.fZH4Fc4wDSH_YNjx4pfHsh8rdOatk8MoKo582D9Peow",
+    },
+  }
+).then((res) => res.json());
 ---
 
-<MainLayout title="Shop">
-  <h2
+<MainLayout>
+  <h1
     class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-[64px]"
   >
     Kaffesortiment
-  </h2>
-  <h3 class="text-[#2B2B2B] georama text-[20px] mx-10 text-center">
+  </h1>
+  <h2 class="text-[#2B2B2B] georama text-[20px] mx-10 text-center">
     Vi har ristet hver bønne med omtanke. Filtrér og find den kaffe, der passer
     til din smag
-  </h3>
+  </h2>
+
+  <!-- Filter knapper -->
+  <div class="m-10 space-y-2 my-8 text-left">
+    <div
+      class="georama md:text-[20px] flex flex-col md:flex-row md:items-center md:gap-10 md:m-20"
+    >
+      <p class="mb-2 md:mb-0">Filter:</p>
+      <div
+        class="flex flex-col gap-2 md:flex-row md:gap-8 items-start md:items-center"
+      >
+        <button
+          data-filter=""
+          class="filter-btn bg-transparent border-none p-0 cursor-pointer"
+        >
+          <span
+            class="border-b-1 border-transparent hover:border-black transition inline-block"
+          >
+            Vis alle
+          </span>
+        </button>
+        <button
+          data-filter="Kaffevaerk Blends"
+          class="filter-btn bg-transparent border-none p-0 cursor-pointer"
+        >
+          <span
+            class="border-b-1 border-transparent hover:border-black transition inline-block"
+          >
+            Kaffevaerk Blends
+          </span>
+        </button>
+        <button
+          data-filter="Single Origin"
+          class="filter-btn bg-transparent border-none p-0 cursor-pointer"
+        >
+          <span
+            class="border-b-1 border-transparent hover:border-black transition inline-block"
+          >
+            Single Origin
+          </span>
+        </button>
+        <button
+          data-filter="Koffeinfri"
+          class="filter-btn bg-transparent border-none p-0 cursor-pointer"
+        >
+          <span
+            class="border-b-1 border-transparent hover:border-black transition inline-block"
+          >
+            Koffeinfri
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Produktlisten -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-3 px-4" id="product-list">
+    {products.map((product) => <Produkter key={product.slug} data={product} />)}
+  </div>
 </MainLayout>
+
+<script client:load>
+  const buttons = document.querySelectorAll(".filter-btn");
+  const products = document.querySelectorAll(".product-item");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.getAttribute("data-filter");
+
+      products.forEach((product) => {
+        if (!filter || product.dataset.category === filter) {
+          product.style.display = "block";
+        } else {
+          product.style.display = "none";
+        }
+      });
+
+      // Fjern border-black fra alle spans
+      buttons.forEach((btn) => {
+        btn.querySelector("span").classList.remove("border-black");
+        btn.querySelector("span").classList.add("border-transparent");
+      });
+
+      // Tilføj border-black til span under den klikkede knap
+      button.querySelector("span").classList.remove("border-transparent");
+      button.querySelector("span").classList.add("border-black");
+    });
+  });
+</script>

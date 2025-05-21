@@ -1,0 +1,22 @@
+---
+const { data } = Astro.props;
+---
+
+<a
+  href={`/shop/${data.slug}`}
+  class="product-item"
+  data-category={data.category}
+>
+  <article class="p-4">
+    <img
+      class="bg-[#6C8EA4] p-10 md:p-20"
+      src={data.image_url}
+      alt={data.name}
+    />
+    <h2 class="georama mt-2 text-center">{data.name}</h2>
+    <p class="">{data.description}</p>
+    <p class="georama mt-2 text-center">
+      Fra {data.one_time_price ? data.one_time_price : data.subscription_price} DKK
+    </p>
+  </article>
+</a>

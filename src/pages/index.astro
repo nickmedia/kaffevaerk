@@ -14,6 +14,26 @@ import instagram2 from "../assets/images/instagram2.webp";
 import instagram3 from "../assets/images/instagram3.webp";
 import plante from "../assets/images/plante.webp";
 import kaffekop from "../assets/images/kaffekop.webp";
+import Produkter from "../components/Produkter.astro";
+
+const data = await fetch(
+  "https://rzrjmncawmbiwybkfevi.supabase.co/rest/v1/products",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6cmptbmNhd21iaXd5YmtmZXZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU4NjM5MDQsImV4cCI6MjA2MTQzOTkwNH0.fZH4Fc4wDSH_YNjx4pfHsh8rdOatk8MoKo582D9Peow",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6cmptbmNhd21iaXd5YmtmZXZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU4NjM5MDQsImV4cCI6MjA2MTQzOTkwNH0.fZH4Fc4wDSH_YNjx4pfHsh8rdOatk8MoKo582D9Peow",
+      Accept: "application/json",
+    },
+  }
+).then((res) => {
+  if (!res.ok) throw new Error(`Fetch error: ${res.status} ${res.statusText}`);
+  return res.json();
+});
+
+console.log(data);
 ---
 
 <MainLayout title="Kaffevaerk">
@@ -59,6 +79,8 @@ import kaffekop from "../assets/images/kaffekop.webp";
     >
       Udvalgte produkter
     </h2>
+
+    {data.slice(0, 3).map((produkt) => <Produkter data={produkt} />)}
   </section>
 
   <section class="bg-[#946654] py-10">

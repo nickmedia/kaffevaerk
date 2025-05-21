@@ -1,0 +1,51 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+export async function getStaticPaths() {
+  const data = await fetch(
+    "https://rzrjmncawmbiwybkfevi.supabase.co/rest/v1/products?order=id.asc",
+    {
+      method: "GET",
+      headers: {
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6cmptbmNhd21iaXd5YmtmZXZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU4NjM5MDQsImV4cCI6MjA2MTQzOTkwNH0.fZH4Fc4wDSH_YNjx4pfHsh8rdOatk8MoKo582D9Peow",
+      },
+    }
+  ).then((response) => response.json());
+
+  return data.map((product) => ({
+    params: { slug: product.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+
+// Hent specifikt produkt baseret på slug
+const product = await fetch(
+  `https://rzrjmncawmbiwybkfevi.supabase.co/rest/v1/products?slug=eq.${slug}`,
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6cmptbmNhd21iaXd5YmtmZXZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU4NjM5MDQsImV4cCI6MjA2MTQzOTkwNH0.fZH4Fc4wDSH_YNjx4pfHsh8rdOatk8MoKo582D9Peow",
+      Accept: "application/json",
+    },
+  }
+)
+  .then((res) => res.json())
+  .then((data) => data[0]);
+
+if (!product) {
+  throw new Error(`Produkt med slug "${slug}" blev ikke fundet.`);
+}
+---
+
+<MainLayout>
+  <div class="bg-[#577866]">
+    <img src={product.image_url} alt={product.name} />
+    <h1>{product.name}</h1>
+    <p>{product.short_description}</p>
+    <p>Pris: {product.one_time_price} DKK</p>
+  </div>
+  <p>{product.full_description}</p>
+</MainLayout>
