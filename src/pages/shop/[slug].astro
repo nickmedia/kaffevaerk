@@ -38,14 +38,65 @@ const product = await fetch(
 if (!product) {
   throw new Error(`Produkt med slug "${slug}" blev ikke fundet.`);
 }
+
+const maxLevel = 5;
+const roastLevel = product.roast_level;
 ---
 
 <MainLayout>
-  <div class="bg-[#577866]">
-    <img src={product.image_url} alt={product.name} />
-    <h1>{product.name}</h1>
-    <p>{product.short_description}</p>
-    <p>Pris: {product.one_time_price} DKK</p>
+  <div class="bg-[#577866] p-5">
+    <img
+      class="max-w-[250px] mx-auto mt-10 md:mx-0"
+      src={product.image_url}
+      alt={product.name}
+    />
+    <h1
+      class="text-[#F9F6F1] georama text-[64px] mt-2 mb-1 text-center md:text-left md:text-[64px]"
+    >
+      {product.name}
+    </h1>
+    <p
+      class="manrope text-[#F9F6F1] text-[16px] px-2 mb-10 md:px-0 md:text-left"
+    >
+      {product.short_description}
+    </p>
+    <p class="mb-1">{product.weight}</p>
+    <div
+      class="manrope text-[#F9F6F1] text-[16px] px-2 mb-10 md:px-0 md:text-left"
+    >
+      <p>Engangskøb {product.one_time_price} DKK</p>
+      <p>Abonnement {product.subscription_price} DKK</p>
+    </div>
+
+    <!-- CTA Knap flyttet ind her -->
+    <div class="flex justify-center mt-10">
+      <a
+        href="#"
+        class="manrope text-[16px] font-medium md:text-[18px] bg-[#F9F6F1] hover:bg-[#455F50] text-[#2B2B2B] px-6 py-4 transition duration-300 md:px-6 md:py-4"
+      >
+        Tilføj til kurven
+      </a>
+    </div>
   </div>
-  <p>{product.full_description}</p>
+
+  <p class="mt-6">{product.full_description}</p>
+
+  <h2
+    class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-[64px]"
+  >
+    Kaffen i detaljer
+  </h2>
+  <div class="w-80 border-b-2 border-[#577866] mx-auto mb-6"></div>
+
+  <div class="flex gap-1">
+    {
+      [...Array(5)].map((_, i) => (
+        <div
+          class={`w-6 h-4 rounded-sm ${
+            i < product.roast_level ? "bg-[#577866]" : "bg-[#95B2A2]"
+          }`}
+        />
+      ))
+    }
+  </div>
 </MainLayout>

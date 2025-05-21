@@ -73,6 +73,7 @@ console.log(data);
     </div>
   </section>
 
+  <!-- Udvalgte produkter -->
   <section>
     <h2
       class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-[64px]"
@@ -80,9 +81,18 @@ console.log(data);
       Udvalgte produkter
     </h2>
 
-    {data.slice(0, 3).map((produkt) => <Produkter data={produkt} />)}
+    <div class="flex flex-col md:flex-row md:space-x-6 justify-center">
+      {
+        data.slice(0, 3).map((produkt) => (
+          <div class="md:w-1/3">
+            <Produkter data={produkt} />
+          </div>
+        ))
+      }
+    </div>
   </section>
 
+  <!-- Om Kaffevaerk -->
   <section class="bg-[#946654] py-10">
     <div class="grid md:grid-cols-2 items-center">
       <Image
@@ -115,6 +125,7 @@ console.log(data);
     <Image src={kaffekop} alt="" class="mt-5 md:mt-10 h-[400px] object-cover" />
   </section>
 
+  <!-- Kundeanmdelser -->
   <section class="bg-[#577866] mt-10 py-4 pb-20 md:pt-10 md:pb-32">
     <h2
       class="text-[#F9F6F1] georama text-[40px] mx-5 mt-5 mb-5 text-center md:text-[64px] md:text-left md:mb-20"
@@ -253,6 +264,7 @@ console.log(data);
     </div>
   </section>
 
+  <!-- Instagram -->
   <section class="bg-[#F9F6F1] mt-10 mb-10">
     <h2
       class="text-[#2B2B2B] georama text-[40px] mx-5 mb-3 text-center md:text-[64px]"
