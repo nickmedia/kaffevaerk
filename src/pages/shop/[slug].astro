@@ -86,17 +86,45 @@ const roastLevel = product.roast_level;
   >
     Kaffen i detaljer
   </h2>
-  <div class="w-80 border-b-2 border-[#577866] mx-auto mb-6"></div>
-
-  <div class="flex gap-1">
+  <div class="w-90 border-b-2 border-[#577866] mx-auto mb-6"></div>
+  <p>Ristegrad</p>
+  <div class="flex gap-0.5 justify-center">
     {
       [...Array(5)].map((_, i) => (
         <div
-          class={`w-6 h-4 rounded-sm ${
-            i < product.roast_level ? "bg-[#577866]" : "bg-[#95B2A2]"
-          }`}
+          class={`w-16 h-10 ${i < product.roast_level ? "bg-[#577866]" : "bg-[#95B2A2]"}`}
         />
       ))
     }
   </div>
+
+  <p>Syrlighed</p>
+  <div class="flex gap-0.5 justify-center">
+    {
+      [...Array(5)].map((_, i) => (
+        <div
+          class={`w-16 h-10 ${i < product.acidity ? "bg-[#577866]" : "bg-[#95B2A2]"}`}
+        />
+      ))
+    }
+  </div>
+
+  <p>Sødme</p>
+  <div class="flex gap-0.5 mb-10 justify-center">
+    {
+      [...Array(5)].map((_, i) => (
+        <div
+          class={`w-16 h-10 ${i < product.sweetness ? "bg-[#577866]" : "bg-[#95B2A2]"}`}
+        />
+      ))
+    }
+  </div>
+
+  <h2
+    class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-[64px]"
+  >
+    Andre produkter, du måske vil kunne lide
+  </h2>
 </MainLayout>
+
+acidity sweetness

@@ -22,6 +22,7 @@ const products = await fetch(
   >
     Kaffesortiment
   </h1>
+
   <h2 class="text-[#2B2B2B] georama text-[20px] mx-10 text-center">
     Vi har ristet hver bønne med omtanke. Filtrér og find den kaffe, der passer
     til din smag
@@ -42,9 +43,8 @@ const products = await fetch(
         >
           <span
             class="border-b-1 border-transparent hover:border-black transition inline-block"
+            >Vis alle</span
           >
-            Vis alle
-          </span>
         </button>
         <button
           data-filter="Kaffevaerk Blends"
@@ -52,9 +52,8 @@ const products = await fetch(
         >
           <span
             class="border-b-1 border-transparent hover:border-black transition inline-block"
+            >Kaffevaerk Blends</span
           >
-            Kaffevaerk Blends
-          </span>
         </button>
         <button
           data-filter="Single Origin"
@@ -62,9 +61,8 @@ const products = await fetch(
         >
           <span
             class="border-b-1 border-transparent hover:border-black transition inline-block"
+            >Single Origin</span
           >
-            Single Origin
-          </span>
         </button>
         <button
           data-filter="Koffeinfri"
@@ -72,9 +70,8 @@ const products = await fetch(
         >
           <span
             class="border-b-1 border-transparent hover:border-black transition inline-block"
+            >Koffeinfri</span
           >
-            Koffeinfri
-          </span>
         </button>
       </div>
     </div>
@@ -82,11 +79,17 @@ const products = await fetch(
 
   <!-- Produktlisten -->
   <div class="grid grid-cols-1 md:grid-cols-3 gap-3 px-4" id="product-list">
-    {products.map((product) => <Produkter key={product.slug} data={product} />)}
+    {
+      products.map((product) => (
+        <div class="product-item" data-category={product.category}>
+          <Produkter key={product.slug} data={product} />
+        </div>
+      ))
+    }
   </div>
 </MainLayout>
 
-<script client:load>
+<script is:inline>
   const buttons = document.querySelectorAll(".filter-btn");
   const products = document.querySelectorAll(".product-item");
 
@@ -95,22 +98,19 @@ const products = await fetch(
       const filter = button.getAttribute("data-filter");
 
       products.forEach((product) => {
-        if (!filter || product.dataset.category === filter) {
-          product.style.display = "block";
-        } else {
-          product.style.display = "none";
-        }
+        product.style.display =
+          !filter || product.dataset.category === filter ? "block" : "none";
       });
 
-      // Fjern border-black fra alle spans
       buttons.forEach((btn) => {
-        btn.querySelector("span").classList.remove("border-black");
-        btn.querySelector("span").classList.add("border-transparent");
+        const span = btn.querySelector("span");
+        span.classList.remove("border-black");
+        span.classList.add("border-transparent");
       });
 
-      // Tilføj border-black til span under den klikkede knap
-      button.querySelector("span").classList.remove("border-transparent");
-      button.querySelector("span").classList.add("border-black");
+      const clickedSpan = button.querySelector("span");
+      clickedSpan.classList.remove("border-transparent");
+      clickedSpan.classList.add("border-black");
     });
   });
 </script>
