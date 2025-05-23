@@ -65,31 +65,29 @@ const prices = {
 ---
 
 <MainLayout>
-  <!-- Købs afsnit -->
+  <!-- Købsafsnit -->
   <div
     class="bg-[#577866] p-5 md:flex md:items-start md:justify-between md:px-24"
   >
     <img
-      class="max-w-[250px] mx-auto mt-10 md:mx-0 md:order-2 md:max-w-[450px]"
+      class="max-w-[250px] mx-auto mt-10 md:mx-24 md:my-24 md:order-2 md:max-w-[450px]"
       src={product.image_url}
       alt={product.name}
     />
 
-    <div class="md:ml-10 md:flex-1 md:order-1">
+    <div class="md:ml-20 md:flex-1 md:order-1">
       <h1
         class="text-[#F9F6F1] georama text-[64px] mt-2 mb-1 text-center md:text-left md:text-[128px]"
       >
         {product.name}
       </h1>
-      <p
-        class="manrope text-[#F9F6F1] text-[16px] px-2 mb-10 md:px-0 md:max-w-xl"
-      >
+      <p class="manrope text-[#F9F6F1] text-[16px] px-2 mb-10 md:px-0">
         {product.short_description}
       </p>
 
       <!-- Købstype -->
-      <form class="mt-8 space-y-4">
-        <div class="border-b border-[#F9F6F1] mx-auto mb-5"></div>
+      <form class="mt-8 space-y-4 md:max-w-md w-full">
+        <div class="border-b border-[#F9F6F1] mb-5"></div>
 
         <!-- Engangskøb -->
         <div>
@@ -111,7 +109,7 @@ const prices = {
           </div>
         </div>
 
-        <div class="border-b border-[#F9F6F1] mx-auto mb-5"></div>
+        <div class="border-b border-[#F9F6F1] mb-5"></div>
 
         <!-- Abonnement -->
         <div>
@@ -132,30 +130,20 @@ const prices = {
           </div>
         </div>
 
-        <div class="border-b border-[#F9F6F1] mx-auto mb-5"></div>
+        <div class="border-b border-[#F9F6F1] mb-5"></div>
       </form>
-
-      <div class="flex justify-center gap-4 mt-10">
-        <button
-          class="manrope text-[16px] font-medium md:text-[18px] border border-[#F9F6F1] text-[#F9F6F1] hover:bg-[#455F50] px-6 py-4 transition duration-300 md:px-6 md:py-4"
-        >
-          350 g
-        </button>
-        <button
-          class="manrope text-[16px] font-medium md:text-[18px] border border-[#F9F6F1] text-[#F9F6F1] hover:bg-[#455F50] px-6 py-4 transition duration-300 md:px-6 md:py-4"
-        >
-          1 kg
-        </button>
-      </div>
 
       <!-- TEST KNAPPER -->
 
-      <div class="flex justify-center gap-4 mt-10" id="weight-buttons">
+      <div
+        class="flex gap-4 mt-10 justify-center md:justify-start"
+        id="weight-buttons"
+      >
         {
           weights.map((w) => (
             <button
               type="button"
-              class="manrope text-[16px] font-medium md:text-[18px] border border-[#F9F6F1] text-[#F9F6F1] hover:bg-[#455F50] px-6 py-4 transition duration-300"
+              class="manrope text-[16px] font-medium md:text-[18px] border border-[#F9F6F1] text-[#F9F6F1] hover:bg-[#455F50] px-6 py-4 transition duration-300 "
               data-weight={w}
             >
               {w}
@@ -163,38 +151,41 @@ const prices = {
           ))
         }
       </div>
-      <p class="manrope text-[18px] text-center mt-4" id="price-display">
+      <p
+        class="manrope text-[18px] mt-4 text-center md:text-left"
+        id="price-display"
+      >
         Pris: {prices["350g"]} DKK
       </p>
 
       <!-- Antal bar -->
       <div
-        class="flex items-center justify-center mt-8 mx-auto w-[160px] h-12 border border-[#F9F6F1] overflow-hidden select-none"
+        class="flex items-center justify-center mt-8 mx-auto w-[200px] h-12 border border-[#F9F6F1] overflow-hidden select-none md:justify-start md:mx-0 md:w-[300px]"
       >
         <button
           id="btn-decrease"
-          class="w-12 h-full text-[#F9F6F1] text-2xl manrope hover:bg-[#455F50] transition flex justify-center items-center"
+          class="w-16 h-full text-[#F9F6F1] text-2xl manrope hover:bg-[#455F50] transition flex justify-center items-center"
         >
           −
         </button>
 
         <span
           id="quantity"
-          class="flex-1 manrope text-center text-[#F9F6F1] text-xl manrope select-text"
+          class="flex-1 manrope text-center text-[#F9F6F1] text-xl select-text"
         >
           1
         </span>
 
         <button
           id="btn-increase"
-          class="w-12 h-full text-[#F9F6F1] text-2xl manrope hover:bg-[#455F50] transition flex justify-center items-center"
+          class="w-16 h-full text-[#F9F6F1] text-2xl manrope hover:bg-[#455F50] transition flex justify-center items-center"
         >
           +
         </button>
       </div>
 
       <!-- Tilføj til kurv knap -->
-      <div class="flex justify-center mt-10">
+      <div class="flex justify-center md:justify-start mt-10 mb-5">
         <a
           href="#"
           class="manrope text-[16px] font-medium md:text-[18px] bg-[#F9F6F1] hover:bg-[#455F50] text-[#2B2B2B] px-6 py-4 transition duration-300 md:px-6 md:py-4"
@@ -205,104 +196,177 @@ const prices = {
     </div>
   </div>
 
-  <!-- Lang beskrivelse -->
-  <div class="px-5 md:px-20 mt-10">
-    <Image src={kaffeplante} alt="" class="w-full max-w-5xl mx-auto h-auto" />
+  <!-- Fuld beskrivelse -->
+  <div class="mt-10 px-5 md:px-16 md:mt-20">
+    <div
+      class="flex flex-col md:flex-row md:items-center md:justify-between gap-8"
+    >
+      <div
+        class="md:flex-1 max-w-full mx-auto md:mx-0 order-1 md:order-2 md:min-h-[450px] md:py-4"
+      >
+        <Image
+          src={kaffeplante}
+          alt=""
+          class="w-full h-full object-cover md:h-[500px]"
+        />
+      </div>
+
+      <div class="md:flex-1 md:pr-10 order-2 md:order-1">
+        <h2
+          class="text-[#2B2B2B] georama text-[40px] mb-5 md:text-[64px] text-center md:text-left"
+        >
+          {product.about_header}
+        </h2>
+        <p
+          class="manrope text-[#2B2B2B] text-[16px] whitespace-pre-line text-left max-w-xl mx-auto md:mx-0"
+        >
+          {product.full_description}
+        </p>
+      </div>
+    </div>
   </div>
-  <h2
-    class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-[64px]"
-  >
-    {product.about_header}
-  </h2>
-  <p
-    class="manrope text-[#2B2B2B] text-[16px] px-5 -md:px-0 md:text-left whitespace-pre-line"
-  >
-    {product.full_description}
-  </p>
 
   <!-- Detaljer -->
   <h2
-    class="text-[#2B2B2B] georama text-[40px] mt-10 mb-5 text-center md:text-[64px]"
+    class="text-[#2B2B2B] georama text-[40px] mt-10 mb-5 text-center md:text-left md:text-[64px] md:px-16 md:mt-32"
   >
     Kaffen i detaljer
   </h2>
 
-  <div class="w-90 border-b-1 border-[#2B2B2B] mx-auto mb-5"></div>
+  <div class="px-5 md:px-16">
+    <div class="w-full border-b border-[#2B2B2B] mb-5"></div>
 
-  <!-- Bar -->
-  <p class="manrope text-[#2B2B2B] text-[16px] text-center mb-2">Ristegrad</p>
-  <div class="flex gap-0.5 justify-center">
-    {
-      [...Array(5)].map((_, i) => (
-        <div
-          class={`w-16 h-9 ${i < product.roast_level ? "bg-[#577866]" : "bg-[#95B2A2]"}`}
-        />
-      ))
-    }
+    <!-- Ristegrad, Syrlighed og Sødme -->
+    <div class="flex flex-col md:flex-row gap-5 mb-5">
+      <!-- Ristegrad -->
+      <div class="flex-1">
+        <p
+          class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-2"
+        >
+          Ristegrad
+        </p>
+        <div class="flex gap-0.5 justify-center md:justify-start">
+          {
+            [...Array(5)].map((_, i) => (
+              <div
+                class={`w-16 h-9 ${
+                  i < product.roast_level ? "bg-[#577866]" : "bg-[#95B2A2]"
+                }`}
+              />
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Syrlighed -->
+      <div class="flex-1">
+        <p
+          class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-2"
+        >
+          Syrlighed
+        </p>
+        <div class="flex gap-0.5 justify-center md:justify-start">
+          {
+            [...Array(5)].map((_, i) => (
+              <div
+                class={`w-16 h-9 ${
+                  i < product.acidity ? "bg-[#577866]" : "bg-[#95B2A2]"
+                }`}
+              />
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Sødme -->
+      <div class="flex-1">
+        <p
+          class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-2"
+        >
+          Sødme
+        </p>
+        <div class="flex gap-0.5 justify-center md:justify-start">
+          {
+            [...Array(5)].map((_, i) => (
+              <div
+                class={`w-16 h-9 ${
+                  i < product.sweetness ? "bg-[#577866]" : "bg-[#95B2A2]"
+                }`}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full border-b border-[#2B2B2B] mb-5"></div>
+
+    <!-- Smagsnoter -->
+    <div class="flex flex-col md:flex-row md:items-start gap-2 mb-5">
+      <p
+        class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left md:w-[445px]"
+      >
+        Smagsnoter
+      </p>
+      <p class="manrope text-[#2B2B2B] text-[16px] text-center">
+        {product.flavor_notes}
+      </p>
+    </div>
+
+    <div class="w-full border-b border-[#2B2B2B] mb-5"></div>
+
+    <!-- Blend -->
+    <div class="flex flex-col md:flex-row md:items-start gap-2">
+      <p
+        class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-2 md:w-[445px]"
+      >
+        Blend
+      </p>
+      <p
+        class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-5"
+      >
+        {product.blend}
+      </p>
+    </div>
+
+    <div class="w-full border-b border-[#2B2B2B] mb-5"></div>
+
+    <!-- Proces -->
+    <div class="flex flex-col md:flex-row md:items-start gap-2">
+      <p
+        class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-2 md:w-[445px]"
+      >
+        Proces
+      </p>
+      <p
+        class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-5"
+      >
+        {product.process}
+      </p>
+    </div>
+
+    <div class="w-full border-b border-[#2B2B2B] mb-5"></div>
   </div>
-
-  <p class="manrope text-[#2B2B2B] text-[16px] text-center mt-5 mb-2">
-    Syrlighed
-  </p>
-  <div class="flex gap-0.5 justify-center">
-    {
-      [...Array(5)].map((_, i) => (
-        <div
-          class={`w-16 h-9 ${i < product.acidity ? "bg-[#577866]" : "bg-[#95B2A2]"}`}
-        />
-      ))
-    }
-  </div>
-
-  <p class="manrope text-[#2B2B2B] text-[16px] text-center mt-5 mb-2">Sødme</p>
-  <div class="flex gap-0.5 mb-10 justify-center">
-    {
-      [...Array(5)].map((_, i) => (
-        <div
-          class={`w-16 h-9 ${i < product.sweetness ? "bg-[#577866]" : "bg-[#95B2A2]"}`}
-        />
-      ))
-    }
-  </div>
-
-  <div class="w-90 border-b-1 border-[#2B2B2B] mx-auto mb-5"></div>
-
-  <!-- Smagsnoter -->
-  <p class="manrope text-[#2B2B2B] text-[16px] text-center mb-2">Smagsnoter</p>
-  <p class="manrope text-[#2B2B2B] text-[16px] text-center mb-5">
-    {product.flavor_notes}
-  </p>
-
-  <div class="w-90 border-b-1 border-[#2B2B2B] mx-auto mb-5"></div>
-
-  <!-- Blend -->
-  <p class="manrope text-[#2B2B2B] text-[16px] text-center mb-2">Blend</p>
-  <p class="manrope text-[#2B2B2B] text-[16px] text-center mb-5">
-    {product.blend}
-  </p>
-
-  <div class="w-90 border-b-1 border-[#2B2B2B] mx-auto mb-5"></div>
-
-  <!-- Proces -->
-  <p class="manrope text-[#2B2B2B] text-[16px] text-center mb-2">Proces</p>
-  <p class="manrope text-[#2B2B2B] text-[16px] text-center mb-5">
-    {product.process}
-  </p>
-  <div class="w-90 border-b-1 border-[#2B2B2B] mx-auto mb-5"></div>
 
   <!-- Anbefalede produkter -->
-  <h2
-    class="text-[#2B2B2B] georama text-[40px] mt-10 mb-5 text-center md:text-[64px]"
-  >
-    Andre produkter, du måske vil kunne lide
-  </h2>
+  <div class="md:px-16">
+    <h2
+      class="text-[#2B2B2B] georama text-[40px] mt-10 mb-5 text-center md:text-left md:text-[64px] md:mt-32"
+    >
+      Andre produkter, du måske vil kunne lide
+    </h2>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
-    {
-      recommendedProducts.map((prod) => (
-        <Produkter key={prod.slug} data={prod} />
-      ))
-    }
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-0">
+      {
+        recommendedProducts.map((prod, i) => {
+          // Grøn, blå, grøn (gentages)
+          const colors = ["#577866", "#6C8EA4", "#577866"];
+          const bgColor = colors[i % 3] || "#577866";
+
+          return <Produkter key={prod.slug} data={prod} bgColor={bgColor} />;
+        })
+      }
+    </div>
   </div>
 </MainLayout>
 

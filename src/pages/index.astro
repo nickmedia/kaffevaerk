@@ -2,6 +2,7 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Button from "../components/Button.astro";
 import Link from "../components/Link.astro";
+import Anmeldelse from "../components/Anmeldelse.astro";
 import { Image } from "astro:assets";
 
 import placeholder from "../assets/images/placeholder.jpg";
@@ -76,24 +77,39 @@ console.log(data);
   <!-- Udvalgte produkter -->
   <section>
     <h2
-      class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-[64px]"
+      class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-[64px] md:text-left md:px-16"
     >
       Udvalgte produkter
     </h2>
 
     <div class="flex flex-col md:flex-row md:space-x-6 justify-center">
       {
-        data.slice(0, 3).map((produkt) => (
-          <div class="md:w-1/3">
-            <Produkter data={produkt} />
-          </div>
-        ))
+        data.slice(0, 3).map((produkt, i) => {
+          // Grøn (0), blå (1), grøn (2)
+          const colors = ["#577866", "#6C8EA4", "#577866"];
+          const bgColor = colors[i] || "#577866";
+
+          return (
+            <div class="md:w-1/3">
+              <Produkter data={produkt} bgColor={bgColor} />
+            </div>
+          );
+        })
       }
+    </div>
+
+    <div class="flex justify-center">
+      <a
+        href="/shop"
+        class="manrope text-[16px] font-medium md:text-[18px] bg-[#577866] hover:bg-[#455F50] text-[#F9F6F1] px-6 py-4 transition duration-300 mt-5"
+      >
+        Se alle produkter
+      </a>
     </div>
   </section>
 
   <!-- Om Kaffevaerk -->
-  <section class="bg-[#946654] py-10">
+  <section class="bg-[#946654] py-10 mt-10">
     <div class="grid md:grid-cols-2 items-center">
       <Image
         src={barista}
@@ -128,139 +144,24 @@ console.log(data);
   <!-- Kundeanmdelser -->
   <section class="bg-[#577866] mt-10 py-4 pb-20 md:pt-10 md:pb-32">
     <h2
-      class="text-[#F9F6F1] georama text-[40px] mx-5 mt-5 mb-5 text-center md:text-[64px] md:text-left md:mb-20"
+      class="text-[#F9F6F1] georama text-[40px] mt-5 mb-5 text-center md:text-[64px] md:text-left md:px-16 md:mb-20"
     >
       Det siger vores kunder
     </h2>
 
     <div class="md:grid md:grid-cols-3 md:gap-6">
-      <!-- Anmeldelse 1 -->
-      <div
-        class="bg-[#F9F6F1] mx-5 pt-16 pb-16 p-4 max-w-md"
-        style="box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);"
-      >
-        <p class="manrope text-[#2B2B2B] text-[16px] px-5">
-          Det er tydeligt, at Kaffevaerk går op i hver eneste detalje – fra
-          ristning til smag. Jeg har aldrig haft så mange favoritbønner på én
-          gang.
-        </p>
-
-        <div class="flex space-x-2 px-4 mt-5">
-          <Image
-            src={stjerne}
-            alt="Anmeldelsesstjerne"
-            class="w-[35px] h-[30px]"
-          />
-          <Image
-            src={stjerne}
-            alt="Anmeldelsesstjerne"
-            class="w-[35px] h-[30px]"
-          />
-          <Image
-            src={stjerne}
-            alt="Anmeldelsesstjerne"
-            class="w-[35px] h-[30px]"
-          />
-          <Image
-            src={stjerne}
-            alt="Anmeldelsesstjerne"
-            class="w-[35px] h-[30px]"
-          />
-          <Image
-            src={stjerne}
-            alt="Anmeldelsesstjerne"
-            class="w-[35px] h-[30px]"
-          />
-        </div>
-        <p class="manrope text-[#2B2B2B] text-[16px] px-5 mt-5">
-          — Signe Katrine Madsen
-        </p>
-      </div>
-
-      <!-- Anmeldelse 2 -->
-      <div
-        class="bg-[#F9F6F1] mx-5 pt-16 pb-16 p-4 max-w-md mt-10 md:mt-0"
-        style="box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);"
-      >
-        <p class="manrope text-[#2B2B2B] text-[16px] px-5">
-          Jeg har fået Kaffevaerk anbefalet af en ven, og nu drikker jeg det
-          hver dag. Deres kaffe smager friskt, og man bliver næsten afhængig på
-          den gode måde.
-        </p>
-
-        <div class="flex space-x-2 px-4 mt-5">
-          <Image
-            src={stjerne}
-            alt="Anmeldelsesstjerne"
-            class="w-[35px] h-[30px]"
-          />
-          <Image
-            src={stjerne}
-            alt="Anmeldelsesstjerne"
-            class="w-[35px] h-[30px]"
-          />
-          <Image
-            src={stjerne}
-            alt="Anmeldelsesstjerne"
-            class="w-[35px] h-[30px]"
-          />
-          <Image
-            src={stjerne}
-            alt="Anmeldelsesstjerne"
-            class="w-[35px] h-[30px]"
-          />
-          <Image
-            src={stjerne}
-            alt="Anmeldelsesstjerne"
-            class="w-[35px] h-[30px]"
-          />
-        </div>
-        <p class="manrope text-[#2B2B2B] text-[16px] px-5 mt-5">
-          — Anders Birk Thomsen
-        </p>
-      </div>
-
-      <!-- Anmeldelse 3 -->
-      <div
-        class="bg-[#F9F6F1] mx-5 pt-16 pb-16 p-4 max-w-md mt-10 md:mt-0"
-        style="box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);"
-      >
-        <p class="manrope text-[#2B2B2B] text-[16px] px-5">
-          Man mærker virkelig kvaliteten. Ikke bare i smagen, men også i
-          indpakningen og kommunikationen. Det føles som et brand med sjæl.
-        </p>
-
-        <div class="flex space-x-2 px-4 mt-5">
-          <Image
-            src={stjerne}
-            alt="Anmeldelsesstjerne"
-            class="w-[35px] h-[30px]"
-          />
-          <Image
-            src={stjerne}
-            alt="Anmeldelsesstjerne"
-            class="w-[35px] h-[30px]"
-          />
-          <Image
-            src={stjerne}
-            alt="Anmeldelsesstjerne"
-            class="w-[35px] h-[30px]"
-          />
-          <Image
-            src={stjerne}
-            alt="Anmeldelsesstjerne"
-            class="w-[35px] h-[30px]"
-          />
-          <Image
-            src={stjerne}
-            alt="Anmeldelsesstjerne"
-            class="w-[35px] h-[30px]"
-          />
-        </div>
-        <p class="manrope text-[#2B2B2B] text-[16px] px-5 mt-5">
-          — Louise Vestergaard
-        </p>
-      </div>
+      <Anmeldelse
+        text="Det er tydeligt, at Kaffevaerk går op i hver eneste detalje – fra ristning til smag. Jeg har aldrig haft så mange forskellige favoritbønner samlet på én gang."
+        author="— Signe Katrine Madsen"
+      />
+      <Anmeldelse
+        text="Jeg har fået Kaffevaerk anbefalet af en ven, og nu drikker jeg det hver dag. Deres kaffe smager friskt, og man bliver næsten afhængig på den gode måde."
+        author="— Anders Birk Thomsen"
+      />
+      <Anmeldelse
+        text="Man mærker virkelig kvaliteten. Ikke bare i smagen, men også i indpakningen og kommunikationen. Det føles som et brand med sjæl."
+        author="— Louise Vestergaard"
+      />
     </div>
   </section>
 

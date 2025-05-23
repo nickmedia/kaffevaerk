@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import stjerne from "../assets/images/stjerne.svg";
+
+const { text, author, stars = 5 } = Astro.props;
+---
+
+<div
+  class="bg-[#F9F6F1] mx-5 mt-5 pt-16 pb-16 p-4 max-w-md"
+  style="box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);"
+>
+  <p class="manrope text-[#2B2B2B] text-[16px] px-5">{text}</p>
+
+  <div class="flex space-x-2 px-4 mt-5">
+    {
+      Array.from({ length: stars }).map(() => (
+        <Image
+          src={stjerne}
+          alt="Anmeldelsesstjerne"
+          class="w-[35px] h-[30px]"
+        />
+      ))
+    }
+  </div>
+
+  <p class="manrope text-[#2B2B2B] text-[16px] px-5 mt-5">{author}</p>
+</div>

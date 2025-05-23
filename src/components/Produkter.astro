@@ -1,5 +1,6 @@
 ---
-const { data } = Astro.props;
+const { data, bgColor } = Astro.props;
+const backgroundColor = bgColor || "#6C8EA4"; // fallback blå
 ---
 
 <a
@@ -9,12 +10,13 @@ const { data } = Astro.props;
 >
   <article class="p-4">
     <img
-      class="bg-[#6C8EA4] p-10 md:p-20"
+      class="p-10 md:p-16 w-full md:max-w-[350px] mx-auto"
+      style={`background-color: ${backgroundColor}; box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);`}
       src={data.image_url}
       alt={data.name}
     />
     <h2 class="georama mt-2 text-center">{data.name}</h2>
-    <p class="">{data.description}</p>
+    <p>{data.description}</p>
     <p class="georama mt-2 text-center">
       Fra {data.one_time_price ? data.one_time_price : data.subscription_price} DKK
     </p>

@@ -80,11 +80,16 @@ const products = await fetch(
   <!-- Produktlisten -->
   <div class="grid grid-cols-1 md:grid-cols-3 gap-3 px-4" id="product-list">
     {
-      products.map((product) => (
-        <div class="product-item" data-category={product.category}>
-          <Produkter key={product.slug} data={product} />
-        </div>
-      ))
+      products.map((product, i) => {
+        const row = Math.floor(i / 3);
+        const bgColor = row % 2 === 0 ? "#6C8EA4" : "#577866";
+
+        return (
+          <div class="product-item" data-category={product.category}>
+            <Produkter data={product} bgColor={bgColor} />
+          </div>
+        );
+      })
     }
   </div>
 </MainLayout>
