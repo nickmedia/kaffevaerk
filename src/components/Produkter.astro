@@ -18,11 +18,7 @@ const backgroundColor = bgColor || "#6C8EA4";
     <h2 class="georama mt-2 text-center">{data.name}</h2>
     <p>{data.description}</p>
     <p class="georama mt-2 text-center">
-      fra {
-        data.subscription_price
-          ? data.subscription_price
-          : data.subscription_price
-      } DKK
+      fra {data.one_time_price ? data.one_time_price : data.subscription_price} DKK
     </p>
   </article>
 </a>
