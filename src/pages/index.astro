@@ -120,7 +120,9 @@ console.log(data);
 
       <!-- Tekst -->
       <div class="max-w-xl mx-auto">
-        <h2 class="text-[#F9F6F1] georama text-[40px] my-5 md:text-[64px]">
+        <h2
+          class="text-[#F9F6F1] text-center georama text-[40px] my-5 md:text-[64px] md:text-left"
+        >
           Vores kaffeunivers
         </h2>
         <p class="manrope text-[#F9F6F1] text-[16px] leading-relaxed">
@@ -232,7 +234,7 @@ console.log(data);
     starsContainer.innerHTML = "";
     for (let i = 0; i < 5; i++) {
       const star = document.createElement("img");
-      star.src = "stjerne.svg"; // skift til dit stjerneikon
+      star.src = "stjerne.svg";
       star.alt = "Anmeldelsesstjerne";
       star.className = "w-[35px] h-[30px]";
       starsContainer.appendChild(star);

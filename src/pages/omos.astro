@@ -5,14 +5,21 @@ import Header from "../components/Header.astro";
 import { Image } from "astro:assets";
 
 import placeholder from "../assets/images/placeholder.jpg";
+
+import kaffekop from "../assets/images/kaffekop.webp";
 ---
 
 <MainLayout title="Om os">
   <section
-    class="flex flex-col md:flex-row md:items-center md:justify-between px-5 md:px-20"
+    class="flex flex-col md:flex-row md:items-center px-5 md:px-20 md:my-10"
   >
-    <Image src={placeholder} alt="" class="order-1 md:max-w-md md:order-2" />
-    <div class="order-2 md:order-1 md:w-1/2 md:mt-10">
+    <Image
+      src={placeholder}
+      alt=""
+      class="order-1 md:max-w-xl md:order-2 md:h-[450px] object-cover"
+    />
+
+    <div class="order-2 md:order-1">
       <h1
         class="text-[#2B2B2B] georama text-[40px] my-5 text-center md:text-left md:text-[48px]"
       >
@@ -36,15 +43,17 @@ import placeholder from "../assets/images/placeholder.jpg";
     </div>
   </section>
 
-  <section class="bg-[#577866] mt-10 py-4 pb-10 px-0 md:py-20">
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-      <!-- Billede til venstre på desktop -->
-      <div class="w-full md:w-1/2">
-        <Image src={placeholder} alt="" class="w-full block" />
-      </div>
+  <section class="bg-[#577866] mt-10 py-4 px-5 md:px-20 md:py-20">
+    <div class="flex flex-col md:flex-row md:items-center">
+      <!-- Billede til venstre -->
+      <Image
+        src={placeholder}
+        alt=""
+        class="w-full md:w-1/2 md:max-w-xl md:mr-10 md:h-[450px] object-cover"
+      />
 
-      <!-- Tekst til højre på desktop -->
-      <div class="w-full md:w-1/2 px-5 md:px-10">
+      <!-- Tekst til højre -->
+      <div class="w-full md:w-1/2">
         <h1
           class="text-[#F5EFE6] georama text-[40px] my-5 text-center md:text-left md:text-[48px]"
         >
@@ -58,19 +67,18 @@ import placeholder from "../assets/images/placeholder.jpg";
           pleje sig selv gennem oprindelige dyrkningsmetoder og naturlig
           kompost-gødning ved vi at jorden i dyrkningslandene ikke bliver udpint
           og at der dermed er grobund for fremtidig kaffedyrkning i
-          generationer. <br />
-          <br />Kaffevaerks mission er at alle skal kunne finde noget de elsker
-          i en af vores poser. Vi rister i små portioner så ofte der er brug for
-          det, til dem der har brug for en opkvikker, en smagsoplevelse eller
-          noget anderledes.
+          generationer. <br /><br />
+          Kaffevaerks mission er at alle skal kunne finde noget de elsker i en af
+          vores poser. Vi rister i små portioner så ofte der er brug for det, til
+          dem der har brug for en opkvikker, en smagsoplevelse eller noget anderledes.
         </p>
       </div>
     </div>
   </section>
 
-  <div class="flex flex-col md:flex-row gap-0 w-full my-20">
-    <Image src={placeholder} alt="" class="w-full md:w-1/3" />
-    <Image src={placeholder} alt="" class="w-full md:w-1/3" />
-    <Image src={placeholder} alt="" class="w-full md:w-1/3" />
+  <div class="flex flex-col md:flex-row gap-6 justify-center my-10 md:px-6">
+    <Image src={kaffekop} alt="" class="w-full md:w-1/3 object-cover" />
+    <Image src={kaffekop} alt="" class="w-full md:w-1/3 object-cover" />
+    <Image src={kaffekop} alt="" class="w-full md:w-1/3 object-cover" />
   </div>
 </MainLayout>

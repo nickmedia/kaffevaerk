@@ -8,13 +8,13 @@ import Banner from "../components/Banner.astro";
 
 <Banner />
 <div
-  class="bg-[#F9F6F1] py-4 px-6 flex items-center justify-between relative z-20"
+  class="relative bg-[#F9F6F1] py-4 px-6 flex items-center justify-center md:justify-between z-20"
 >
   <!-- Burger Menu ikon -->
   <button
     id="burgerBtn"
     aria-label="Burger Menu"
-    class="md:hidden flex flex-col space-y-1 cursor-pointer relative w-6 h-6"
+    class="md:hidden flex flex-col space-y-1 cursor-pointer absolute left-6 top-1/2 -translate-y-1/2 w-6 h-6 z-30"
   >
     <span
       class="block w-6 h-[2px] bg-black transition-all duration-300 ease-in-out origin-center"
@@ -28,11 +28,14 @@ import Banner from "../components/Banner.astro";
   </button>
 
   <!-- Logo -->
-  <a href="/" class="flex justify-center items-center">
+  <a href="/" class="z-20">
     <Image src={logo} alt="Kaffevaerk logo" class="h-[60px] w-[60px]" />
   </a>
 
-  <nav class="hidden md:flex space-x-10">
+  <!-- Desktop navigation -->
+  <nav
+    class="hidden md:flex absolute left-1/2 -translate-x-1/2 space-x-10 z-20"
+  >
     <a href="/shop" class="manrope font-semibold">Shop</a>
     <a href="/omos" class="manrope font-semibold">Om os</a>
     <a href="/kontakt" class="manrope font-semibold">Kontakt</a>
@@ -40,7 +43,7 @@ import Banner from "../components/Banner.astro";
   </nav>
 
   <!-- Ikoner -->
-  <div class="flex space-x-4">
+  <div class="flex space-x-4 absolute right-6 top-1/2 -translate-y-1/2 z-20">
     <Image src={søg} alt="Søg ikon" class="h-[25px] w-[25px]" />
     <Image src={kurv} alt="Kurv ikon" class="h-[25px] w-[25px]" />
   </div>
@@ -49,33 +52,46 @@ import Banner from "../components/Banner.astro";
 <!-- Burger menu dropdown -->
 <nav
   id="burgerMenu"
-  class="max-h-0 overflow-hidden bg-[#F9F6F1] transition-max-height duration-300 ease-in-out md:hidden"
+  class="fixed top-0 left-0 w-screen h-screen bg-[#F9F6F1] opacity-0 invisible flex flex-col justify-center items-center transition-opacity duration-300 ease-in-out md:hidden z-15"
 >
-  <ul class="flex flex-col space-y-3 p-4">
-    <li><a href="/shop" class="hover:underline">Shop</a></li>
-    <li><a href="/omos" class="hover:underline">Om os</a></li>
-    <li><a href="/kontakt" class="hover:underline">Kontakt</a></li>
-    <li><a href="/faq" class="hover:underline">FAQ</a></li>
+  <ul class="flex flex-col space-y-6 text-center text-xl">
+    <li>
+      <a href="/shop" class="hover:underline manrope font-semibold">Shop</a>
+    </li>
+    <li>
+      <a href="/omos" class="hover:underline manrope font-semibold">Om os</a>
+    </li>
+    <li>
+      <a href="/kontakt" class="hover:underline manrope font-semibold"
+        >Kontakt</a
+      >
+    </li>
+    <li>
+      <a href="/faq" class="hover:underline manrope font-semibold">FAQ</a>
+    </li>
   </ul>
 </nav>
 
 <script>
   const burgerBtn = document.getElementById("burgerBtn");
   const burgerMenu = document.getElementById("burgerMenu");
-  const lines = burgerBtn.querySelectorAll("span");
 
   burgerBtn.addEventListener("click", () => {
-    const isOpen =
-      burgerMenu.style.maxHeight && burgerMenu.style.maxHeight !== "0px";
+    const isOpen = burgerMenu.classList.contains("open");
 
     if (isOpen) {
-      burgerMenu.style.maxHeight = "0";
+      burgerMenu.classList.remove("open");
       burgerBtn.classList.remove("open");
+      burgerMenu.style.pointerEvents = "none"; // deaktiver klik når skjult
     } else {
-      burgerMenu.style.maxHeight = burgerMenu.scrollHeight + "px";
+      burgerMenu.classList.add("open");
       burgerBtn.classList.add("open");
+      burgerMenu.style.pointerEvents = "auto"; // aktiver klik når vist
     }
   });
+
+  // Sæt pointer-events initialt, skjult menu ikke klikbar
+  burgerMenu.style.pointerEvents = "none";
 </script>
 
 <style>
@@ -90,8 +106,13 @@ import Banner from "../components/Banner.astro";
     transform: rotate(-45deg) translate(5px, -5px);
   }
 
-  /* Transition på max-height for smooth dropdown */
+  /* Vis/skjul menu via opacity + visibility */
   nav#burgerMenu {
-    transition-property: max-height;
+    transition-property: opacity, visibility;
+  }
+
+  nav#burgerMenu.open {
+    opacity: 1;
+    visibility: visible;
   }
 </style>
