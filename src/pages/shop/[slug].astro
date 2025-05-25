@@ -133,7 +133,7 @@ const prices = {
         <div class="border-b border-[#F9F6F1] mb-5"></div>
       </form>
 
-      <!-- TEST KNAPPER -->
+      <!-- Vægt knapper -->
 
       <div
         class="flex gap-4 mt-10 justify-center md:justify-start"
@@ -143,7 +143,7 @@ const prices = {
           weights.map((w) => (
             <button
               type="button"
-              class="manrope text-[16px] font-medium md:text-[18px] border border-[#F9F6F1] text-[#F9F6F1] hover:bg-[#455F50] px-6 py-4 transition duration-300 "
+              class="manrope text-[16px] font-medium md:text-[18px] border border-[#F9F6F1] text-[#F9F6F1] hover:bg-[#F9F6F1] hover:text-[#2B2B2B] px-6 py-4 transition duration-300 "
               data-weight={w}
             >
               {w}
@@ -151,8 +151,9 @@ const prices = {
           ))
         }
       </div>
+
       <p
-        class="manrope text-[18px] mt-4 text-center md:text-left"
+        class="manrope text-[#F9F6F1] text-[18px] mt-4 text-center md:text-left"
         id="price-display"
       >
         Pris: {prices["350g"]} DKK
@@ -188,7 +189,7 @@ const prices = {
       <div class="flex justify-center md:justify-start mt-10 mb-5">
         <a
           href="#"
-          class="manrope text-[16px] font-medium md:text-[18px] bg-[#F9F6F1] hover:bg-[#455F50] text-[#2B2B2B] px-6 py-4 transition duration-300 md:px-6 md:py-4"
+          class="manrope text-[16px] font-medium md:text-[18px] bg-[#F9F6F1] hover:bg-[#EBE0DB] text-[#2B2B2B] px-6 py-4 transition duration-300 md:px-6 md:py-4"
         >
           Tilføj til kurven
         </a>
@@ -396,18 +397,23 @@ const prices = {
 
   buttons.forEach((btn) => {
     btn.addEventListener("click", () => {
-      // Fjern aktiv klasse fra alle
-      buttons.forEach((b) =>
-        b.classList.remove("bg-[#455F50]", "text-[#F9F6F1]")
-      );
-      // Tilføj aktiv klasse til den valgte
-      btn.classList.add("bg-[#455F50]", "text-[#F9F6F1]");
+      // Fjern aktiv styling fra alle knapper
+      buttons.forEach((b) => {
+        b.classList.remove("bg-[#F9F6F1]", "text-[#2B2B2B]");
+        b.classList.add("text-[#F9F6F1]");
+      });
 
+      // Tilføj aktiv styling til den valgte knap
+      btn.classList.add("bg-[#F9F6F1]", "text-[#2B2B2B]");
+      btn.classList.remove("text-[#F9F6F1]");
+
+      // Opdater pris
       const weight = btn.getAttribute("data-weight");
       priceDisplay.textContent = `Pris: ${prices[weight]} DKK`;
     });
   });
 
   // Sæt den første knap som aktiv ved start
-  buttons[0].classList.add("bg-[#455F50]", "text-[#F9F6F1]");
+  buttons[0].classList.add("bg-[#F9F6F1]", "text-[#2B2B2B]");
+  buttons[0].classList.remove("text-[#F9F6F1]");
 </script>
