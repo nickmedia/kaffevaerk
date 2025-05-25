@@ -3,6 +3,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Button from "../components/Button.astro";
 import Link from "../components/Link.astro";
 import Anmeldelse from "../components/Anmeldelse.astro";
+import Produkter from "../components/Produkter.astro";
 import { Image } from "astro:assets";
 
 import placeholder from "../assets/images/placeholder.jpg";
@@ -15,7 +16,6 @@ import instagram2 from "../assets/images/instagram2.webp";
 import instagram3 from "../assets/images/instagram3.webp";
 import plante from "../assets/images/plante.webp";
 import kaffekop from "../assets/images/kaffekop.webp";
-import Produkter from "../components/Produkter.astro";
 
 const data = await fetch(
   "https://rzrjmncawmbiwybkfevi.supabase.co/rest/v1/products",
@@ -110,27 +110,29 @@ console.log(data);
 
   <!-- Om Kaffevaerk -->
   <section class="bg-[#946654] py-10 mt-10">
-    <div class="grid md:grid-cols-2 items-center">
+    <div class="grid md:grid-cols-2 items-center mx-auto px-5">
+      <!-- Billede -->
       <Image
         src={barista}
-        alt=""
-        class="w-full md:w-[80%] md:h-[500px] object-cover px-5 md:px-0 mx-auto"
+        alt="Barista"
+        class="w-full md:w-[90%] md:h-[450px] object-cover mx-auto"
       />
 
-      <div class="px-5 md:px-10">
-        <h2 class="text-[#F9F6F1] georama text-[40px] mt-5 mb-5 md:text-[64px]">
+      <!-- Tekst -->
+      <div class="max-w-xl mx-auto">
+        <h2 class="text-[#F9F6F1] georama text-[40px] my-5 md:text-[64px]">
           Vores kaffeunivers
         </h2>
-        <p class="manrope text-[#F9F6F1] text-[16px]">
+        <p class="manrope text-[#F9F6F1] text-[16px] leading-relaxed">
           Hos Kaffevaerk handler det ikke bare om kaffe – det handler om
           kvalitet, bæredygtighed og passion. Vi rister kaffe med hjertet på
           vores eget risteri, og vi arbejder tæt sammen med vores dygtige
           farmere for at sikre en kaffeoplevelse, der smager lige så godt, som
-          den føles. Vores kaffe er sporbar og bæredygtig , hvilket betyder, at
+          den føles. Vores kaffe er sporbar og bæredygtig, hvilket betyder, at
           du ikke kun får en fantastisk smagsoplevelse, men også er med til at
-          støtte etisk produktion. <br />
-          <br />Velkommen til en verden af friskristet kaffe – lavet med omhu,
-          leveret med kærlighed.
+          støtte etisk produktion. <br /><br />
+          Velkommen til en verden af friskristet kaffe – lavet med omhu, leveret
+          med kærlighed.
         </p>
       </div>
     </div>
@@ -142,14 +144,14 @@ console.log(data);
   </section>
 
   <!-- Kundeanmdelser -->
-  <section class="bg-[#577866] mt-10 py-4 pb-20 md:pt-10 md:pb-32">
+  <section class="bg-[#577866] mt-10 py-4 pb-10 md:pt-10 md:pb-32">
     <h2
       class="text-[#F9F6F1] georama text-[40px] mt-5 mb-5 text-center md:text-[64px] md:text-left md:px-16 md:mb-20"
     >
       Det siger vores kunder
     </h2>
 
-    <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="md:grid md:grid-cols-3 md:gap-6 md:px-16">
       <Anmeldelse
         text="Det er tydeligt, at Kaffevaerk går op i hver eneste detalje – fra ristning til smag. Jeg har aldrig haft så mange forskellige favoritbønner samlet på én gang."
         author="— Signe Katrine Madsen"
