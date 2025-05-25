@@ -1,0 +1,46 @@
+---
+
+---
+
+<button
+  id="tilTopBtn"
+  class="hidden fixed bottom-6 right-6 z-50 bg-[#6C8EA4] text-[#F9F6F1] p-3 rounded-full shadow-lg hover:bg-[#537387] transition-all cursor-pointer"
+  aria-label="Til toppen"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+  </svg>
+</button>
+
+<script>
+  // Sørg for at scriptet kører først når DOM er klar
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("tilTopBtn");
+
+    if (!btn) return;
+
+    // Scroll synlighed
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        btn.classList.remove("hidden");
+      } else {
+        btn.classList.add("hidden");
+      }
+    });
+
+    // Klik = scroll til top
+    btn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+</script>
