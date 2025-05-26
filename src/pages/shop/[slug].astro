@@ -198,7 +198,7 @@ const prices = {
   </div>
 
   <!-- Fuld beskrivelse -->
-  <div class="mt-10 px-5 md:px-16 md:mt-20">
+  <div class="mt-10 px-5 md:px-16 md:mt-20 fade1">
     <div
       class="flex flex-col md:flex-row md:items-center md:justify-between gap-8"
     >
@@ -228,129 +228,131 @@ const prices = {
   </div>
 
   <!-- Detaljer -->
-  <h2
-    class="text-[#2B2B2B] georama text-[40px] mt-10 mb-5 text-center md:text-left md:text-[64px] md:px-16 md:mt-32"
-  >
-    Kaffen i detaljer
-  </h2>
+  <div class="fade2">
+    <h2
+      class="text-[#2B2B2B] georama text-[40px] mt-10 mb-5 text-center md:text-left md:text-[64px] md:px-16 md:mt-32"
+    >
+      Kaffen i detaljer
+    </h2>
 
-  <div class="px-5 md:px-16">
-    <div class="w-full border-b border-[#2B2B2B] mb-5"></div>
+    <div class="px-5 md:px-16">
+      <div class="w-full border-b border-[#2B2B2B] mb-5"></div>
 
-    <!-- Ristegrad, Syrlighed og Sødme -->
-    <div class="flex flex-col md:flex-row gap-5 mb-5">
-      <!-- Ristegrad -->
-      <div class="flex-1">
-        <p
-          class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-2"
-        >
-          Ristegrad
-        </p>
-        <div class="flex gap-0.5 justify-center md:justify-start">
-          {
-            [...Array(5)].map((_, i) => (
-              <div
-                class={`w-16 h-9 ${
-                  i < product.roast_level ? "bg-[#577866]" : "bg-[#95B2A2]"
-                }`}
-              />
-            ))
-          }
+      <!-- Ristegrad, Syrlighed og Sødme -->
+      <div class="flex flex-col md:flex-row gap-5 mb-5">
+        <!-- Ristegrad -->
+        <div class="flex-1">
+          <p
+            class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-2"
+          >
+            Ristegrad
+          </p>
+          <div class="flex gap-0.5 justify-center md:justify-start">
+            {
+              [...Array(5)].map((_, i) => (
+                <div
+                  class={`w-16 h-9 ${
+                    i < product.roast_level ? "bg-[#577866]" : "bg-[#95B2A2]"
+                  }`}
+                />
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Syrlighed -->
+        <div class="flex-1">
+          <p
+            class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-2"
+          >
+            Syrlighed
+          </p>
+          <div class="flex gap-0.5 justify-center md:justify-start">
+            {
+              [...Array(5)].map((_, i) => (
+                <div
+                  class={`w-16 h-9 ${
+                    i < product.acidity ? "bg-[#577866]" : "bg-[#95B2A2]"
+                  }`}
+                />
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Sødme -->
+        <div class="flex-1">
+          <p
+            class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-2"
+          >
+            Sødme
+          </p>
+          <div class="flex gap-0.5 justify-center md:justify-start">
+            {
+              [...Array(5)].map((_, i) => (
+                <div
+                  class={`w-16 h-9 ${
+                    i < product.sweetness ? "bg-[#577866]" : "bg-[#95B2A2]"
+                  }`}
+                />
+              ))
+            }
+          </div>
         </div>
       </div>
 
-      <!-- Syrlighed -->
-      <div class="flex-1">
+      <div class="w-full border-b border-[#2B2B2B] mb-5"></div>
+
+      <!-- Smagsnoter -->
+      <div class="flex flex-col md:flex-row md:items-start gap-2 mb-5">
         <p
-          class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-2"
+          class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left md:w-[445px]"
         >
-          Syrlighed
+          Smagsnoter
         </p>
-        <div class="flex gap-0.5 justify-center md:justify-start">
-          {
-            [...Array(5)].map((_, i) => (
-              <div
-                class={`w-16 h-9 ${
-                  i < product.acidity ? "bg-[#577866]" : "bg-[#95B2A2]"
-                }`}
-              />
-            ))
-          }
-        </div>
+        <p class="manrope text-[#2B2B2B] text-[16px] text-center">
+          {product.flavor_notes}
+        </p>
       </div>
 
-      <!-- Sødme -->
-      <div class="flex-1">
+      <div class="w-full border-b border-[#2B2B2B] mb-5"></div>
+
+      <!-- Blend -->
+      <div class="flex flex-col md:flex-row md:items-start gap-2">
         <p
-          class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-2"
+          class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-2 md:w-[445px]"
         >
-          Sødme
+          Blend
         </p>
-        <div class="flex gap-0.5 justify-center md:justify-start">
-          {
-            [...Array(5)].map((_, i) => (
-              <div
-                class={`w-16 h-9 ${
-                  i < product.sweetness ? "bg-[#577866]" : "bg-[#95B2A2]"
-                }`}
-              />
-            ))
-          }
-        </div>
+        <p
+          class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-5"
+        >
+          {product.blend}
+        </p>
       </div>
+
+      <div class="w-full border-b border-[#2B2B2B] mb-5"></div>
+
+      <!-- Proces -->
+      <div class="flex flex-col md:flex-row md:items-start gap-2">
+        <p
+          class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-2 md:w-[445px]"
+        >
+          Proces
+        </p>
+        <p
+          class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-5"
+        >
+          {product.process}
+        </p>
+      </div>
+
+      <div class="w-full border-b border-[#2B2B2B] mb-5"></div>
     </div>
-
-    <div class="w-full border-b border-[#2B2B2B] mb-5"></div>
-
-    <!-- Smagsnoter -->
-    <div class="flex flex-col md:flex-row md:items-start gap-2 mb-5">
-      <p
-        class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left md:w-[445px]"
-      >
-        Smagsnoter
-      </p>
-      <p class="manrope text-[#2B2B2B] text-[16px] text-center">
-        {product.flavor_notes}
-      </p>
-    </div>
-
-    <div class="w-full border-b border-[#2B2B2B] mb-5"></div>
-
-    <!-- Blend -->
-    <div class="flex flex-col md:flex-row md:items-start gap-2">
-      <p
-        class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-2 md:w-[445px]"
-      >
-        Blend
-      </p>
-      <p
-        class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-5"
-      >
-        {product.blend}
-      </p>
-    </div>
-
-    <div class="w-full border-b border-[#2B2B2B] mb-5"></div>
-
-    <!-- Proces -->
-    <div class="flex flex-col md:flex-row md:items-start gap-2">
-      <p
-        class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-2 md:w-[445px]"
-      >
-        Proces
-      </p>
-      <p
-        class="manrope text-[#2B2B2B] text-[16px] text-center md:text-left mb-5"
-      >
-        {product.process}
-      </p>
-    </div>
-
-    <div class="w-full border-b border-[#2B2B2B] mb-5"></div>
   </div>
 
   <!-- Anbefalede produkter -->
-  <div class="md:px-16">
+  <div class="md:px-16 fade3 md:mb-20">
     <h2
       class="text-[#2B2B2B] georama text-[40px] mt-10 mb-5 text-center md:text-left md:text-[64px] md:mt-32"
     >
@@ -416,4 +418,41 @@ const prices = {
   // Sæt den første knap som aktiv ved start
   buttons[0].classList.add("bg-[#F9F6F1]", "text-[#2B2B2B]");
   buttons[0].classList.remove("text-[#F9F6F1]");
+</script>
+
+<script>
+  import { inView } from "motion";
+
+  const fade1 = document.querySelector(".fade1");
+
+  inView(fade1, () => {
+    fade1.classList.add(
+      "animate__animated",
+      "animate__fadeIn",
+      "fadeInOpacity",
+      "animate__delay-1s"
+    );
+  });
+
+  const fade2 = document.querySelector(".fade2");
+
+  inView(fade2, () => {
+    fade2.classList.add(
+      "animate__animated",
+      "animate__fadeIn",
+      "fadeInOpacity",
+      "animate__delay-1s"
+    );
+  });
+
+  const fade3 = document.querySelector(".fade3");
+
+  inView(fade3, () => {
+    fade3.classList.add(
+      "animate__animated",
+      "animate__fadeIn",
+      "fadeInOpacity",
+      "animate__delay-1s"
+    );
+  });
 </script>
