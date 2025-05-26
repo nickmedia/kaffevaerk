@@ -109,8 +109,8 @@ console.log(data);
   </section>
 
   <!-- Om Kaffevaerk -->
-  <section class="bg-[#946654] py-10 mt-10 fade2">
-    <div class="grid md:grid-cols-2 items-center mx-auto px-5">
+  <section class="bg-[#946654] py-10 mt-10">
+    <div class="grid md:grid-cols-2 items-center mx-auto px-5 fade2">
       <!-- Billede -->
       <Image
         src={barista}
@@ -140,7 +140,7 @@ console.log(data);
     </div>
   </section>
 
-  <section class="md:grid md:grid-cols-2 gap-4">
+  <section class="md:grid md:grid-cols-2 gap-4 fade3">
     <Image src={kaffekop} alt="" class="mt-10 h-[400px] object-cover" />
     <Image
       src={kaffeplante2}
@@ -151,30 +151,32 @@ console.log(data);
 
   <!-- Kundeanmdelser -->
   <section class="bg-[#577866] mt-10 py-4 pb-10 md:pt-10 md:pb-32">
-    <h2
-      class="text-[#F9F6F1] georama text-[40px] mt-5 mb-5 text-center md:text-[64px] md:text-left md:px-16 md:mb-20"
-    >
-      Det siger vores kunder
-    </h2>
+    <div class="fade4">
+      <h2
+        class="text-[#F9F6F1] georama text-[40px] mt-5 mb-5 text-center md:text-[64px] md:text-left md:px-16 md:mb-20"
+      >
+        Det siger vores kunder
+      </h2>
 
-    <div class="md:grid md:grid-cols-3 md:gap-6 md:px-16">
-      <Anmeldelse
-        text="Det er tydeligt, at Kaffevaerk går op i hver eneste detalje – fra ristning til smag. Jeg har aldrig haft så mange forskellige favoritbønner samlet på én gang."
-        author="— Signe Katrine Madsen"
-      />
-      <Anmeldelse
-        text="Jeg har fået Kaffevaerk anbefalet af en ven, og nu drikker jeg det hver dag. Deres kaffe smager friskt, og man bliver næsten afhængig på den gode måde."
-        author="— Anders Birk Thomsen"
-      />
-      <Anmeldelse
-        text="Man mærker virkelig kvaliteten. Ikke bare i smagen, men også i indpakningen og kommunikationen. Det føles som et brand med sjæl."
-        author="— Louise Vestergaard"
-      />
+      <div class="md:grid md:grid-cols-3 md:gap-6 md:px-16">
+        <Anmeldelse
+          text="Det er tydeligt, at Kaffevaerk går op i hver eneste detalje – fra ristning til smag. Jeg har aldrig haft så mange forskellige favoritbønner samlet på én gang."
+          author="— Signe Katrine Madsen"
+        />
+        <Anmeldelse
+          text="Jeg har fået Kaffevaerk anbefalet af en ven, og nu drikker jeg det hver dag. Deres kaffe smager friskt, og man bliver næsten afhængig på den gode måde."
+          author="— Anders Birk Thomsen"
+        />
+        <Anmeldelse
+          text="Man mærker virkelig kvaliteten. Ikke bare i smagen, men også i indpakningen og kommunikationen. Det føles som et brand med sjæl."
+          author="— Louise Vestergaard"
+        />
+      </div>
     </div>
   </section>
 
   <!-- Instagram -->
-  <section class="bg-[#F9F6F1] mt-10 mb-10">
+  <section class="bg-[#F9F6F1] mt-10 mb-10 fade5">
     <h2
       class="text-[#2B2B2B] georama text-[40px] mx-5 mb-3 text-center md:text-[64px]"
     >
@@ -283,6 +285,39 @@ console.log(data);
 
   inView(fade2, () => {
     fade2.classList.add(
+      "animate__animated",
+      "animate__fadeIn",
+      "fadeInOpacity",
+      "animate__delay-1s"
+    );
+  });
+
+  const fade3 = document.querySelector(".fade3");
+
+  inView(fade3, () => {
+    fade3.classList.add(
+      "animate__animated",
+      "animate__fadeIn",
+      "fadeInOpacity",
+      "animate__delay-1s"
+    );
+  });
+
+  const fade4 = document.querySelector(".fade4");
+
+  inView(fade4, () => {
+    fade4.classList.add(
+      "animate__animated",
+      "animate__fadeIn",
+      "fadeInOpacity",
+      "animate__delay-1s"
+    );
+  });
+
+  const fade5 = document.querySelector(".fade5");
+
+  inView(fade5, () => {
+    fade5.classList.add(
       "animate__animated",
       "animate__fadeIn",
       "fadeInOpacity",

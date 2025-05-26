@@ -7,7 +7,7 @@ import { Image } from "astro:assets";
 ---
 
 <MainLayout title="FAQ">
-  <div class="w-full max-w-3xl px-6 mx-auto mt-10">
+  <div class="w-full max-w-3xl px-6 mx-auto mt-10 fade1">
     <h1
       class="text-[#2B2B2B] georama text-[40px] my-5 mx-10 md:mx-0 text-center md:text-[64px]"
     >
@@ -189,3 +189,17 @@ import { Image } from "astro:assets";
     transform: rotate(45deg); /* fx ændre plus til kryds */
   }
 </style>
+
+<script>
+  import { inView } from "motion";
+
+  const fade1 = document.querySelector(".fade1");
+
+  inView(fade1, () => {
+    fade1.classList.add(
+      "animate__animated",
+      "animate__fadeIn",
+      "fadeInOpacity"
+    );
+  });
+</script>

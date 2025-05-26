@@ -4,7 +4,7 @@ import instagram from "../assets/images/instagram.svg";
 ---
 
 <footer class="bg-[#946654] py-4 md:pt-10">
-  <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mx-4 md:mx-16">
+  <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mx-4 md:mx-16 fade1">
     <!-- Adresse -->
     <div>
       <h1 class="text-[#F9F6F1] georama text-[24px] md:text-[28px]">Adresse</h1>
@@ -125,3 +125,28 @@ import instagram from "../assets/images/instagram.svg";
     <a href="#" class="whitespace-nowrap hover:underline">Opsigelsespolitik</a>
   </div>
 </footer>
+
+<script>
+  import { inView } from "motion";
+
+  const fade1 = document.querySelector(".fade1");
+
+  inView(fade1, () => {
+    fade1.classList.add(
+      "animate__animated",
+      "animate__fadeIn",
+      "fadeInOpacity"
+    );
+  });
+
+  const fade2 = document.querySelector(".fade2");
+
+  inView(fade2, () => {
+    fade2.classList.add(
+      "animate__animated",
+      "animate__fadeIn",
+      "fadeInOpacity",
+      "animate__delay-1s"
+    );
+  });
+</script>

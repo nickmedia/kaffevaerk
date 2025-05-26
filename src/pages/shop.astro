@@ -17,80 +17,82 @@ const products = await fetch(
 ---
 
 <MainLayout>
-  <h1
-    class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-[64px]"
-  >
-    Kaffesortiment
-  </h1>
-
-  <h2 class="text-[#2B2B2B] georama text-[20px] mx-10 text-center">
-    Vi har ristet hver bønne med omtanke. Filtrér og find den kaffe, der passer
-    til din smag
-  </h2>
-
-  <!-- Filter knapper -->
-  <div class="m-10 text-left md:m-0">
-    <div
-      class="georama md:text-[20px] flex flex-col md:flex-row md:items-center md:gap-10 md:m-20"
+  <div class="fade1">
+    <h1
+      class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-[64px]"
     >
-      <p class="mb-2 md:mb-0">Filter:</p>
+      Kaffesortiment
+    </h1>
+
+    <h2 class="text-[#2B2B2B] georama text-[20px] mx-10 text-center">
+      Vi har ristet hver bønne med omtanke. Filtrér og find den kaffe, der
+      passer til din smag
+    </h2>
+
+    <!-- Filter knapper -->
+    <div class="m-10 text-left md:m-0">
       <div
-        class="flex flex-col gap-2 md:flex-row md:gap-8 items-start md:items-center"
+        class="georama md:text-[20px] flex flex-col md:flex-row md:items-center md:gap-10 md:m-20"
       >
-        <button
-          data-filter=""
-          class="filter-btn bg-transparent border-none p-0 cursor-pointer"
+        <p class="mb-2 md:mb-0">Filter:</p>
+        <div
+          class="flex flex-col gap-2 md:flex-row md:gap-8 items-start md:items-center"
         >
-          <span
-            class="border-b-1 border-transparent hover:border-black transition inline-block"
-            >Vis alle</span
+          <button
+            data-filter=""
+            class="filter-btn bg-transparent border-none p-0 cursor-pointer"
           >
-        </button>
-        <button
-          data-filter="Kaffevaerk Blends"
-          class="filter-btn bg-transparent border-none p-0 cursor-pointer"
-        >
-          <span
-            class="border-b-1 border-transparent hover:border-black transition inline-block"
-            >Kaffevaerk Blends</span
+            <span
+              class="border-b-1 border-transparent hover:border-black transition inline-block"
+              >Vis alle</span
+            >
+          </button>
+          <button
+            data-filter="Kaffevaerk Blends"
+            class="filter-btn bg-transparent border-none p-0 cursor-pointer"
           >
-        </button>
-        <button
-          data-filter="Single Origin"
-          class="filter-btn bg-transparent border-none p-0 cursor-pointer"
-        >
-          <span
-            class="border-b-1 border-transparent hover:border-black transition inline-block"
-            >Single Origin</span
+            <span
+              class="border-b-1 border-transparent hover:border-black transition inline-block"
+              >Kaffevaerk Blends</span
+            >
+          </button>
+          <button
+            data-filter="Single Origin"
+            class="filter-btn bg-transparent border-none p-0 cursor-pointer"
           >
-        </button>
-        <button
-          data-filter="Koffeinfri"
-          class="filter-btn bg-transparent border-none p-0 cursor-pointer"
-        >
-          <span
-            class="border-b-1 border-transparent hover:border-black transition inline-block"
-            >Koffeinfri</span
+            <span
+              class="border-b-1 border-transparent hover:border-black transition inline-block"
+              >Single Origin</span
+            >
+          </button>
+          <button
+            data-filter="Koffeinfri"
+            class="filter-btn bg-transparent border-none p-0 cursor-pointer"
           >
-        </button>
+            <span
+              class="border-b-1 border-transparent hover:border-black transition inline-block"
+              >Koffeinfri</span
+            >
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Produktlisten -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-3 px-4" id="product-list">
-    {
-      products.map((product, i) => {
-        const row = Math.floor(i / 3);
-        const bgColor = row % 2 === 0 ? "#6C8EA4" : "#577866";
+    <!-- Produktlisten -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 px-4" id="product-list">
+      {
+        products.map((product, i) => {
+          const row = Math.floor(i / 3);
+          const bgColor = row % 2 === 0 ? "#6C8EA4" : "#577866";
 
-        return (
-          <div class="product-item" data-category={product.category}>
-            <Produkter data={product} bgColor={bgColor} />
-          </div>
-        );
-      })
-    }
+          return (
+            <div class="product-item" data-category={product.category}>
+              <Produkter data={product} bgColor={bgColor} />
+            </div>
+          );
+        })
+      }
+    </div>
   </div>
 </MainLayout>
 
@@ -117,5 +119,19 @@ const products = await fetch(
       clickedSpan.classList.remove("border-transparent");
       clickedSpan.classList.add("border-black");
     });
+  });
+</script>
+
+<script>
+  import { inView } from "motion";
+
+  const fade1 = document.querySelector(".fade1");
+
+  inView(fade1, () => {
+    fade1.classList.add(
+      "animate__animated",
+      "animate__fadeIn",
+      "fadeInOpacity"
+    );
   });
 </script>
