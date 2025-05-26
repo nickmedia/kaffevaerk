@@ -1,13 +1,24 @@
 ---
-const { text } = Astro.props;
+const { variant = "primary", size = "desktop" } = Astro.props;
+
+const base =
+  "inline-flex items-center justify-center transition-colors duration-200 font-poppins rounded-s";
+
+const variants = {
+  primary:
+    "bg-mgron500 hover:bg-mgron700 active:bg-mgron800 text-phvid hover:text-hvid text-mlink md:text-link",
+  secondary:
+    "bg-gul500 hover:bg-gul600 active:bg-gul700 text-phvid text-mlink md:text-link",
+  navbar:
+    "text-mgron500 hover:text-mgron700 active:text-mgron800 text-mlink md:text-link",
+};
+
+const sizes = {
+  desktop: "py-xs px-s",
+  mobil: "py-xs px-xs",
+};
 ---
 
-<button
-  class="manrope text-[16px] font-medium bg-[#577866] hover:bg-[#455F50] text-[#F9F6F1]
-         px-6 py-3 h-[60px] md:px-8 md:py-4 md:h-16 z-20 transition duration-300"
-  >{ text }
-</button>
-
-<button>
-    <slot/>
+<button class:list={[base, variants[variant], sizes[size]]}>
+  <slot />
 </button>
