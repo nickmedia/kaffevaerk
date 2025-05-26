@@ -10,11 +10,12 @@ const backgroundColor = bgColor || "#6C8EA4";
 >
   <article class="p-4">
     <img
-      class="p-10 md:p-16 w-full md:max-w-[350px] mx-auto"
+      class={`p-10 md:p-16 w-full md:max-w-[350px] mx-auto transition-transform duration-300 ease-in-out hover:-translate-y-2`}
       style={`background-color: ${backgroundColor}; box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);`}
       src={data.image_url}
       alt={data.name}
     />
+
     <h2 class="georama mt-2 text-center">{data.name}</h2>
     <p>{data.description}</p>
     <p class="georama mt-2 text-center">
