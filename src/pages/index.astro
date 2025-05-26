@@ -75,7 +75,7 @@ console.log(data);
   </section>
 
   <!-- Udvalgte produkter -->
-  <section class="md:my-20">
+  <section class="md:my-20 fade1">
     <h2
       class="text-[#2B2B2B] georama text-[40px] mt-5 mb-5 text-center md:text-[64px] md:text-left md:px-16"
     >
@@ -109,7 +109,7 @@ console.log(data);
   </section>
 
   <!-- Om Kaffevaerk -->
-  <section class="bg-[#946654] py-10 mt-10">
+  <section class="bg-[#946654] py-10 mt-10 fade2">
     <div class="grid md:grid-cols-2 items-center mx-auto px-5">
       <!-- Billede -->
       <Image
@@ -263,4 +263,30 @@ console.log(data);
 
   // Skift anmeldelse automatisk hvert 4. sekund
   setInterval(nextReview, 1000);
+</script>
+
+<script>
+  import { inView } from "motion";
+
+  const fade1 = document.querySelector(".fade1");
+
+  inView(fade1, () => {
+    fade1.classList.add(
+      "animate__animated",
+      "animate__fadeIn",
+      "fadeInOpacity",
+      "animate__delay-1s"
+    );
+  });
+
+  const fade2 = document.querySelector(".fade2");
+
+  inView(fade2, () => {
+    fade2.classList.add(
+      "animate__animated",
+      "animate__fadeIn",
+      "fadeInOpacity",
+      "animate__delay-1s"
+    );
+  });
 </script>
