@@ -169,14 +169,17 @@ console.log(data);
         <Anmeldelse
           text="Det er tydeligt, at Kaffevaerk går op i hver eneste detalje – fra ristning til smag. Jeg har aldrig haft så mange forskellige favoritbønner samlet på én gang."
           author="— Signe Katrine Madsen"
+          stars={5}
         />
         <Anmeldelse
           text="Jeg har fået Kaffevaerk anbefalet af en ven, og nu drikker jeg det hver dag. Deres kaffe smager friskt, og man bliver næsten afhængig på den gode måde."
           author="— Anders Birk Thomsen"
+          stars={5}
         />
         <Anmeldelse
           text="Man mærker virkelig kvaliteten. Ikke bare i smagen, men også i indpakningen og kommunikationen. Det føles som et brand med sjæl."
           author="— Louise Vestergaard"
+          stars={5}
         />
       </div>
     </div>
@@ -224,59 +227,6 @@ console.log(data);
     </div>
   </section>
 </MainLayout>
-
-<script>
-  const reviews = [
-    {
-      text: "Det er tydeligt, at Kaffevaerk går op i hver eneste detalje – fra ristning til smag. Jeg har aldrig haft så mange favoritbønner på én gang.",
-      author: "— Signe Katrine Madsen",
-    },
-    {
-      text: "Jeg har fået Kaffevaerk anbefalet af en ven, og nu drikker jeg det hver dag. Deres kaffe smager friskt, og man bliver næsten afhængig på den gode måde.",
-      author: "— Anders Birk Thomsen",
-    },
-    {
-      text: "Man mærker virkelig kvaliteten. Ikke bare i smagen, men også i indpakningen og kommunikationen. Det føles som et brand med sjæl.",
-      author: "— Louise Vestergaard",
-    },
-  ];
-
-  const reviewText = document.getElementById("reviewText");
-  const reviewAuthor = document.getElementById("reviewAuthor");
-  const starsContainer = document.getElementById("starsContainer");
-  const reviewIndex = document.getElementById("reviewIndex");
-
-  let currentIndex = 0;
-  const total = reviews.length;
-
-  function renderReview(index) {
-    const review = reviews[index];
-    reviewText.textContent = review.text;
-    reviewAuthor.textContent = review.author;
-
-    starsContainer.innerHTML = "";
-    for (let i = 0; i < 5; i++) {
-      const star = document.createElement("img");
-      star.src = "stjerne.svg";
-      star.alt = "Anmeldelsesstjerne";
-      star.className = "w-[35px] h-[30px]";
-      starsContainer.appendChild(star);
-    }
-
-    reviewIndex.textContent = `${index + 1} / ${total}`;
-  }
-
-  function nextReview() {
-    currentIndex = (currentIndex + 1) % total;
-    renderReview(currentIndex);
-  }
-
-  // Start med at vise første anmeldelse
-  renderReview(currentIndex);
-
-  // Skift anmeldelse automatisk hvert 4. sekund
-  setInterval(nextReview, 1000);
-</script>
 
 <script>
   import { inView } from "motion";
